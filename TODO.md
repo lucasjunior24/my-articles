@@ -33,22 +33,22 @@
 
 ### Tarefas
 
-- [ ] **0.1** Criar projeto com Vite
+- [x] **0.1** Criar projeto com Vite
   ```bash
   npm create vite@latest . -- --template react-ts
   ```
-- [ ] **0.2** Instalar dependências principais
+- [x] **0.2** Instalar dependências principais
   ```bash
   npm install firebase react-router-dom react-markdown uuid
   npm install -D tailwindcss @tailwindcss/typography @tailwindcss/line-clamp postcss autoprefixer vitest @testing-library/react @testing-library/jest-dom @playwright/test
   ```
-- [ ] **0.3** Configurar Tailwind CSS
+- [x] **0.3** Configurar Tailwind CSS
   - Criar `tailwind.config.ts` com cores Dracula Dark
   - Criar `postcss.config.js`
   - Adicionar diretivas Tailwind no `index.css`
-- [ ] **0.4** Configurar TypeScript strict mode no `tsconfig.json`
-- [ ] **0.5** Configurar ESLint + Prettier
-- [ ] **0.6** Configurar variáveis de ambiente (`.env.example`)
+- [x] **0.4** Configurar TypeScript strict mode no `tsconfig.json`
+- [x] **0.5** Configurar ESLint + Prettier
+- [x] **0.6** Configurar variáveis de ambiente (`.env.example`)
   ```env
   VITE_FIREBASE_API_KEY=
   VITE_FIREBASE_AUTH_DOMAIN=
@@ -57,7 +57,7 @@
   VITE_FIREBASE_MESSAGING_SENDER_ID=
   VITE_FIREBASE_APP_ID=
   ```
-- [ ] **0.7** Criar estrutura de diretórios vazia
+- [x] **0.7** Criar estrutura de diretórios vazia
   ```
   src/core/entities/
   src/core/ports/
@@ -81,8 +81,8 @@
   src/shared/utils/
   src/shared/constants/
   ```
-- [ ] **0.8** Configurar `vite.config.ts` com path aliases (`@/` → `src/`)
-- [ ] **0.9** Verificar que `npm run dev` funciona (tela em branco)
+- [x] **0.8** Configurar `vite.config.ts` com path aliases (`@/` → `src/`)
+- [x] **0.9** Verificar que `npm run dev` funciona (tela em branco)
 
 ---
 
@@ -578,7 +578,7 @@
 ## 📊 Resumo de Progresso
 
 ```
-Sprint 0  [          ] Setup do Projeto
+Sprint 0  [##########] Setup do Projeto ✅
 Sprint 1  [          ] Core — Regras de Negócio
 Sprint 2  [          ] Adapters — Firebase & Cache
 Sprint 3  [          ] DI Container & Contextos
@@ -594,7 +594,7 @@ Sprint 11 [          ] Polimento & Deploy
 
 > **Total de tarefas:** ~110 tarefas  
 > **Duração estimada:** ~20 dias  
-> **Status:** 🟡 Não iniciado
+> **Status:** 🟢 Sprint 0 concluída
 
 ---
 
@@ -602,7 +602,7 @@ Sprint 11 [          ] Polimento & Deploy
 
 ### 🔥 Must Have (MVP)
 
-- [ ] Setup do projeto (Sprint 0)
+- [x] Setup do projeto (Sprint 0)
 - [ ] Core entities + ports (Sprint 1)
 - [ ] Firebase adapters (Sprint 2)
 - [ ] DI Container (Sprint 3)
