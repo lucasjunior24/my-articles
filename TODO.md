@@ -406,14 +406,14 @@
 
 ### 8.1 Layout Admin
 
-- [ ] **8.1.1** Criar `AdminLayout` (index.tsx + styles.ts)
+- [x] **8.1.1** Criar `AdminLayout` (index.tsx + styles.ts)
   - Sidebar com navegação admin
   - Header com info do admin
   - Main content area
 
 ### 8.2 Componentes de Formulário
 
-- [ ] **8.2.1** Criar `ArticleForm` (index.tsx + styles.ts)
+- [x] **8.2.1** Criar `ArticleForm` (index.tsx + styles.ts)
   - Campos: título, conteúdo (Markdown), excerpt, tags, coverImage, status
   - Preview de Markdown ao vivo
   - Validação de campos
@@ -421,14 +421,14 @@
 
 ### 8.3 Páginas Admin
 
-- [ ] **8.3.1** Criar `DashboardPage` (index.tsx + styles.ts)
+- [x] **8.3.1** Criar `DashboardPage` (index.tsx + styles.ts)
   - Lista de artigos (publicados e rascunhos)
   - Ações: editar, deletar, publicar/despublicar
   - Estatísticas: total de artigos, total de likes
-- [ ] **8.3.2** Criar `NewArticlePage` (index.tsx + styles.ts)
+- [x] **8.3.2** Criar `NewArticlePage` (index.tsx + styles.ts)
   - Formulário para criar novo artigo
   - Redirecionar após criação
-- [ ] **8.3.3** Criar `EditArticlePage` (index.tsx + styles.ts)
+- [x] **8.3.3** Criar `EditArticlePage` (index.tsx + styles.ts)
   - Carregar artigo existente
   - Formulário pré-preenchido
   - Salvar alterações
@@ -584,7 +584,7 @@ Sprint 4  [##########] Componentes de UI ✅
 Sprint 5  [##########] Páginas Públicas ✅
 Sprint 6  [##########] Autenticação & Autorização ✅
 Sprint 7  [          ] Sistema de Like/Dislike
-Sprint 8  [          ] Admin — CRUD de Artigos
+Sprint 8  [##########] Admin — CRUD de Artigos ✅
 Sprint 9  [          ] Cache por IP & Performance
 Sprint 10 [          ] Testes
 Sprint 11 [          ] Polimento & Deploy
@@ -592,7 +592,6 @@ Sprint 11 [          ] Polimento & Deploy
 
 > **Total de tarefas:** ~110 tarefas  
 > **Duração estimada:** ~20 dias  
-> **Status:** 🟢 Sprint 0 concluída | 🟢 Sprint 1 concluída | 🟢 Sprint 2 concluída | 🟢 Sprint 3 concluída | 🟢 Sprint 4 concluída | 🟢 Sprint 5 concluída | 🟢 Sprint 6 concluída
 
 
 ---
@@ -608,7 +607,6 @@ Sprint 11 [          ] Polimento & Deploy
 - [x] Componentes UI básicos (Sprint 4)
 - [x] HomePage + ArticlePage (Sprint 5)
 - [x] Login com Google (Sprint 6)
-- [ ] CRUD de artigos admin (Sprint 8)
 - [ ] Deploy (Sprint 11)
 
 ### ⭐ Nice to Have
