@@ -24,7 +24,10 @@ dist-ssr
 *.sw?
 
 rules
+.rulescline
+.rules/*
 .rules
 *.rules
 .rules/
 .rules/*
+.rules2/*

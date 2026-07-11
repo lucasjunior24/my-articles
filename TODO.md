@@ -238,48 +238,46 @@
 
 ### 4.1 Componentes Base
 
-- [ ] **4.1.1** Criar `Button` (index.tsx + styles.ts)
+- [x] **4.1.1** Criar `Button` (index.tsx)
   - Variantes: primary, secondary, danger, ghost
   - Tamanhos: sm, md, lg
   - Estado de loading com spinner
-- [ ] **4.1.2** Criar `Input` (index.tsx + styles.ts)
+- [x] **4.1.2** Criar `Input` (index.tsx)
   - Label, mensagem de erro, placeholder
-- [ ] **4.1.3** Criar `TextArea` (index.tsx + styles.ts)
+- [x] **4.1.3** Criar `TextArea` (index.tsx)
   - Label, mensagem de erro, rows configurável
-- [ ] **4.1.4** Criar `LoadingSpinner` (index.tsx + styles.ts)
+- [x] **4.1.4** Criar `LoadingSpinner` (index.tsx)
   - Tamanhos configuráveis
-- [ ] **4.1.5** Criar `ErrorMessage` (index.tsx + styles.ts)
+- [x] **4.1.5** Criar `ErrorMessage` (index.tsx)
   - Mensagem de erro com opção de retry
-- [ ] **4.1.6** Criar `CacheIndicator` (index.tsx + styles.ts)
+- [x] **4.1.6** Criar `CacheIndicator` (index.tsx)
   - Badge "Dados em cache • Xmin atrás"
-- [ ] **4.1.7** Criar `Modal` (index.tsx + styles.ts)
+- [x] **4.1.7** Criar `Modal` (index.tsx)
   - Overlay, título, conteúdo, botão fechar
-- [ ] **4.1.8** Criar `ConfirmDialog` (index.tsx + styles.ts)
+- [x] **4.1.8** Criar `ConfirmDialog` (index.tsx)
   - Mensagem, confirmar, cancelar
-- [ ] **4.1.9** Criar `ErrorBoundary` (index.tsx)
+- [x] **4.1.9** Criar `ErrorBoundary` (index.tsx)
   - Componente de classe para capturar erros
 
 ### 4.2 Tema Dracula Dark
 
-- [ ] **4.2.1** Definir paleta de cores Dracula no `tailwind.config.ts`
-  ```ts
-  colors: {
-    dracula: {
-      bg: '#282a36',      // Fundo principal
-      current: '#44475a',  // Linha atual / seleção
-      fg: '#f8f8f2',      // Texto principal
-      comment: '#6272a4',  // Comentários
-      cyan: '#8be9fd',
-      green: '#50fa7b',
-      orange: '#ffb86c',
-      pink: '#ff79c6',
-      purple: '#bd93f9',
-      red: '#ff5555',
-      yellow: '#f1fa8c',
-    }
+- [x] **4.2.1** Definir paleta de cores Dracula no `index.css` (Tailwind CSS v4 `@theme`)
+  ```css
+  @theme {
+    --color-dracula-bg: #282a36;
+    --color-dracula-current: #44475a;
+    --color-dracula-fg: #f8f8f2;
+    --color-dracula-comment: #6272a4;
+    --color-dracula-cyan: #8be9fd;
+    --color-dracula-green: #50fa7b;
+    --color-dracula-orange: #ffb86c;
+    --color-dracula-pink: #ff79c6;
+    --color-dracula-purple: #bd93f9;
+    --color-dracula-red: #ff5555;
+    --color-dracula-yellow: #f1fa8c;
   }
   ```
-- [ ] **4.2.2** Criar `index.css` com estilos globais Dracula
+- [x] **4.2.2** Criar `index.css` com estilos globais Dracula
   - Background escuro, texto claro
   - Scrollbar estilizada
   - Seleção de texto com cor Dracula
@@ -583,7 +581,7 @@ Sprint 1  [##########] Core — Regras de Negócio ✅
 
 Sprint 2  [##########] Adapters — Firebase & Cache ✅
 Sprint 3  [##########] DI Container & Contextos ✅
-Sprint 4  [          ] Componentes de UI
+Sprint 4  [##########] Componentes de UI ✅
 Sprint 5  [          ] Páginas Públicas
 Sprint 6  [          ] Autenticação & Autorização
 Sprint 7  [          ] Sistema de Like/Dislike
@@ -595,7 +593,7 @@ Sprint 11 [          ] Polimento & Deploy
 
 > **Total de tarefas:** ~110 tarefas  
 > **Duração estimada:** ~20 dias  
-> **Status:** 🟢 Sprint 0 concluída | 🟢 Sprint 1 concluída | 🟢 Sprint 2 concluída | 🟢 Sprint 3 concluída
+> **Status:** 🟢 Sprint 0 concluída | 🟢 Sprint 1 concluída | 🟢 Sprint 2 concluída | 🟢 Sprint 3 concluída | 🟢 Sprint 4 concluída
 
 
 ---
@@ -608,7 +606,7 @@ Sprint 11 [          ] Polimento & Deploy
 - [x] Core entities + ports (Sprint 1)
 - [x] Firebase adapters (Sprint 2)
 - [x] DI Container (Sprint 3)
-- [ ] Componentes UI básicos (Sprint 4)
+- [x] Componentes UI básicos (Sprint 4)
 - [ ] HomePage + ArticlePage (Sprint 5)
 - [ ] Login com Google (Sprint 6)
 - [ ] CRUD de artigos admin (Sprint 8)
