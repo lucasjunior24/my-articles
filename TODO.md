@@ -165,20 +165,20 @@
 
 ### 2.1 Firebase Config
 
-- [ ] **2.1.1** Criar `src/adapters/firebase/firebaseConfig.ts`
+- [x] **2.1.1** Criar `src/adapters/firebase/firebaseConfig.ts`
   - Inicializar Firebase com variáveis de ambiente
   - Exportar `getFirebaseAuth()`, `getFirebaseDb()`, `getFirebaseStorage()`
 
 ### 2.2 FirebaseArticleAdapter
 
-- [ ] **2.2.1** Criar `src/adapters/firebase/FirebaseArticleAdapter.ts`
+- [x] **2.2.1** Criar `src/adapters/firebase/FirebaseArticleAdapter.ts`
   - Implementar `ArticleRepositoryPort`
   - Métodos: `getAll`, `getById`, `getBySlug`, `create`, `update`, `delete`, `getByAuthor`
   - Mapear Timestamp do Firestore para Date
 
 ### 2.3 FirebaseAuthAdapter
 
-- [ ] **2.3.1** Criar `src/adapters/firebase/FirebaseAuthAdapter.ts`
+- [x] **2.3.1** Criar `src/adapters/firebase/FirebaseAuthAdapter.ts`
   - Implementar `AuthRepositoryPort`
   - Login com Google (popup)
   - Logout
@@ -187,18 +187,18 @@
 
 ### 2.4 FirebaseLikeAdapter
 
-- [ ] **2.4.1** Criar `src/adapters/firebase/FirebaseLikeAdapter.ts`
+- [x] **2.4.1** Criar `src/adapters/firebase/FirebaseLikeAdapter.ts`
   - Implementar `LikeRepositoryPort`
   - Lógica de toggle (none → like → dislike → none)
   - Atualização atômica com `increment()`
 
 ### 2.5 Cache & HTTP
 
-- [ ] **2.5.1** Criar `src/adapters/http/IPFetcher.ts`
+- [x] **2.5.1** Criar `src/adapters/http/IPFetcher.ts`
   - Obter IP público via api.ipify.org
   - Gerar hash do IP (função hash simples)
   - Fallback para `local-dev` em caso de erro
-- [ ] **2.5.2** Criar `src/adapters/cache/IPCacheAdapter.ts`
+- [x] **2.5.2** Criar `src/adapters/cache/IPCacheAdapter.ts`
   - Implementar `CachePort`
   - Armazenamento em `localStorage`
   - Chave composta: `{prefix}_{key}_{ip_hash}`
@@ -581,7 +581,7 @@
 Sprint 0  [##########] Setup do Projeto ✅
 Sprint 1  [##########] Core — Regras de Negócio ✅
 
-Sprint 2  [          ] Adapters — Firebase & Cache
+Sprint 2  [##########] Adapters — Firebase & Cache ✅
 Sprint 3  [          ] DI Container & Contextos
 Sprint 4  [          ] Componentes de UI
 Sprint 5  [          ] Páginas Públicas
@@ -595,7 +595,7 @@ Sprint 11 [          ] Polimento & Deploy
 
 > **Total de tarefas:** ~110 tarefas  
 > **Duração estimada:** ~20 dias  
-> **Status:** 🟢 Sprint 0 concluída | 🟢 Sprint 1 concluída
+> **Status:** 🟢 Sprint 0 concluída | 🟢 Sprint 1 concluída | 🟢 Sprint 2 concluída
 
 
 ---
@@ -606,8 +606,7 @@ Sprint 11 [          ] Polimento & Deploy
 
 - [x] Setup do projeto (Sprint 0)
 - [x] Core entities + ports (Sprint 1)
-
-- [ ] Firebase adapters (Sprint 2)
+- [x] Firebase adapters (Sprint 2)
 - [ ] DI Container (Sprint 3)
 - [ ] Componentes UI básicos (Sprint 4)
 - [ ] HomePage + ArticlePage (Sprint 5)

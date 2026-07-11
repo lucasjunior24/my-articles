@@ -1,14 +1,11 @@
 import type { LikeRepositoryPort } from "../../ports/LikeRepositoryPort";
-import type { AuthRepositoryPort } from "../../ports/AuthRepositoryPort";
-import type { ArticleLikesSummary } from "../../entities/LikeDislike";
+import type { ArticleLikesSummary, LikeType } from "../../entities/LikeDislike";
 
 export class GetArticleLikesUseCase {
   private readonly likeRepo: LikeRepositoryPort;
-  private readonly authRepo: AuthRepositoryPort;
 
-  constructor(likeRepo: LikeRepositoryPort, authRepo: AuthRepositoryPort) {
+  constructor(likeRepo: LikeRepositoryPort) {
     this.likeRepo = likeRepo;
-    this.authRepo = authRepo;
   }
 
   async execute(
@@ -17,7 +14,7 @@ export class GetArticleLikesUseCase {
   ): Promise<ArticleLikesSummary> {
     const summary = await this.likeRepo.getArticleSummary(articleId);
 
-    let userVote: "like" | "dislike" | "none" = "none";
+    let userVote: LikeType = "none";
 
     if (userId) {
       userVote = await this.likeRepo.getUserVote(articleId, userId);
