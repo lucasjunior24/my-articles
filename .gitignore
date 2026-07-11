@@ -31,3 +31,6 @@ rules
 .rules/
 .rules/*
 .rules2/*
+
+
+.env

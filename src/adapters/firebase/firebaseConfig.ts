@@ -10,6 +10,7 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 let app: FirebaseApp | null = null;
@@ -25,22 +26,38 @@ function getFirebaseApp(): FirebaseApp {
 }
 
 export function getFirebaseAuth(): Auth {
-  if (!auth) {
-    auth = getAuth(getFirebaseApp());
+  try {
+    if (!auth) {
+      auth = getAuth(getFirebaseApp());
+    }
+    return auth;
+  } catch (error) {
+    console.error("Error initializing Firebase Auth:", error);
+    throw error;
   }
-  return auth;
 }
 
 export function getFirebaseDb(): Firestore {
-  if (!db) {
-    db = getFirestore(getFirebaseApp());
+  try {
+    if (!db) {
+      db = getFirestore(getFirebaseApp());
+    }
+
+    return db;
+  } catch (error) {
+    console.error("Error initializing Firestore:", error);
+    throw error;
   }
-  return db;
 }
 
 export function getFirebaseStorage(): FirebaseStorage {
-  if (!storage) {
-    storage = getStorage(getFirebaseApp());
+  try {
+    if (!storage) {
+      storage = getStorage(getFirebaseApp());
+    }
+    return storage;
+  } catch (error) {
+    console.error("Error initializing Firebase Storage:", error);
+    throw error;
   }
-  return storage;
 }

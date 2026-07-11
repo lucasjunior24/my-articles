@@ -4,6 +4,7 @@ import { HomePage } from "./presentation/pages/HomePage";
 import { ArticlePage } from "./presentation/pages/ArticlePage";
 import { LoginPage } from "./presentation/pages/LoginPage";
 import { NotFoundPage } from "./presentation/pages/NotFoundPage";
+import { ProtectedRoute } from "./presentation/components/auth/ProtectedRoute";
 
 function App() {
   return (
@@ -13,6 +14,17 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/artigo/:slug" element={<ArticlePage />} />
           <Route path="/login" element={<LoginPage />} />
+
+          {/* Admin routes — protected */}
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute requireAdmin>
+                <div>Admin Dashboard (em breve)</div>
+              </ProtectedRoute>
+            }
+          />
+
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

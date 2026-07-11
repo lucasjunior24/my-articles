@@ -347,14 +347,14 @@
 
 ### 6.1 Componentes de Auth
 
-- [ ] **6.1.1** Criar `UserAvatar` (index.tsx + styles.ts)
+- [x] **6.1.1** Criar `UserAvatar` (index.tsx + styles.ts)
   - Foto do usuário ou iniciais
   - Tooltip com nome e email
-- [ ] **6.1.2** Criar `AuthButton` (index.tsx + styles.ts)
+- [x] **6.1.2** Criar `AuthButton` (index.tsx + styles.ts)
   - Estado não logado: botão "Entrar com Google"
   - Estado logado: avatar + nome + botão "Sair"
   - Estado loading: botão desabilitado
-- [ ] **6.1.3** Criar `ProtectedRoute` (index.tsx + styles.ts)
+- [x] **6.1.3** Criar `ProtectedRoute` (index.tsx + styles.ts)
   - Verificar autenticação
   - Verificar role (admin)
   - Redirecionar para login se não autenticado
@@ -362,13 +362,13 @@
 
 ### 6.2 Hook de Auth
 
-- [ ] **6.2.1** Criar `src/presentation/hooks/useAuth.ts`
+- [x] **6.2.1** Criar `src/presentation/hooks/useAuth.ts`
   - Hook que consome AuthContext + DI
   - `user`, `isLoading`, `login()`, `logout()`, `isAdmin`
 
 ### 6.3 Firebase Custom Claims
 
-- [ ] **6.3.1** Criar script `scripts/set-admin.js`
+- [x] **6.3.1** Criar script `scripts/set-admin.js`
   - Script Node.js para definir admin via Firebase Admin SDK
   - ```bash
     node scripts/set-admin.js uid-do-usuario
@@ -578,12 +578,11 @@
 ```
 Sprint 0  [##########] Setup do Projeto ✅
 Sprint 1  [##########] Core — Regras de Negócio ✅
-
 Sprint 2  [##########] Adapters — Firebase & Cache ✅
 Sprint 3  [##########] DI Container & Contextos ✅
 Sprint 4  [##########] Componentes de UI ✅
 Sprint 5  [##########] Páginas Públicas ✅
-Sprint 6  [          ] Autenticação & Autorização
+Sprint 6  [##########] Autenticação & Autorização ✅
 Sprint 7  [          ] Sistema de Like/Dislike
 Sprint 8  [          ] Admin — CRUD de Artigos
 Sprint 9  [          ] Cache por IP & Performance
@@ -593,7 +592,7 @@ Sprint 11 [          ] Polimento & Deploy
 
 > **Total de tarefas:** ~110 tarefas  
 > **Duração estimada:** ~20 dias  
-> **Status:** 🟢 Sprint 0 concluída | 🟢 Sprint 1 concluída | 🟢 Sprint 2 concluída | 🟢 Sprint 3 concluída | 🟢 Sprint 4 concluída | 🟢 Sprint 5 concluída
+> **Status:** 🟢 Sprint 0 concluída | 🟢 Sprint 1 concluída | 🟢 Sprint 2 concluída | 🟢 Sprint 3 concluída | 🟢 Sprint 4 concluída | 🟢 Sprint 5 concluída | 🟢 Sprint 6 concluída
 
 
 ---
@@ -608,7 +607,7 @@ Sprint 11 [          ] Polimento & Deploy
 - [x] DI Container (Sprint 3)
 - [x] Componentes UI básicos (Sprint 4)
 - [x] HomePage + ArticlePage (Sprint 5)
-- [ ] Login com Google (Sprint 6)
+- [x] Login com Google (Sprint 6)
 - [ ] CRUD de artigos admin (Sprint 8)
 - [ ] Deploy (Sprint 11)
 
@@ -623,4 +622,4 @@ Sprint 11 [          ] Polimento & Deploy
 ---
 
 > **Gerado a partir de:** `.rules/ARCHITECTURE.md`  
-> **Última atualização:** 10/07/2026
+> **Última atualização:** 11/07/2026
