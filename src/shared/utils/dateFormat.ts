@@ -28,7 +28,3 @@ export function formatDateRelative(date: Date): string {
 
   return formatDate(date);
 }
-
-export function timeAgo(date: Date): string {
-  return formatDateRelative(date);
-}

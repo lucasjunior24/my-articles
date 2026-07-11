@@ -1,20 +1,24 @@
 export interface ApiResponse<T> {
   success: boolean;
-  data?: T;
-  error?: ApiError;
-  metadata?: ApiMetadata;
+  data: T;
+  message?: string;
 }
 
 export interface ApiError {
-  code: string;
-  message: string;
-  details?: unknown;
+  success: false;
+  error: {
+    code: string;
+    message: string;
+  };
 }
 
-export interface ApiMetadata {
-  cached: boolean;
-  cachedAt?: number;
-  ttl?: number;
-}
+export type ApiResult<T> = ApiResponse<T> | ApiError;
 
-export type AsyncResult<T> = Promise<ApiResponse<T>>;
+export interface PaginatedResponse<T> {
+  success: boolean;
+  data: T[];
+  total: number;
+  page: number;
+  pageSize: number;
+  totalPages: number;
+}

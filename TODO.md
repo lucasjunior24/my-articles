@@ -92,69 +92,69 @@
 
 ### 1.1 Entidades
 
-- [ ] **1.1.1** Criar `src/core/entities/Article.ts`
+- [x] **1.1.1** Criar `src/core/entities/Article.ts`
   - Interface `Article`, `CreateArticleDTO`, `UpdateArticleDTO`, tipo `ArticleStatus`
-- [ ] **1.1.2** Criar `src/core/entities/User.ts`
+- [x] **1.1.2** Criar `src/core/entities/User.ts`
   - Interface `AppUser`, `AuthState`, tipo `UserRole`
-- [ ] **1.1.3** Criar `src/core/entities/LikeDislike.ts`
+- [x] **1.1.3** Criar `src/core/entities/LikeDislike.ts`
   - Interface `LikeDislike`, `ArticleLikesSummary`, tipo `LikeType`
-- [ ] **1.1.4** Criar `src/core/entities/CacheEntry.ts`
+- [x] **1.1.4** Criar `src/core/entities/CacheEntry.ts`
   - Interface `CacheEntry<T>`, função `isCacheValid()`
 
 ### 1.2 Ports (Interfaces)
 
-- [ ] **1.2.1** Criar `src/core/ports/ArticleRepositoryPort.ts`
-- [ ] **1.2.2** Criar `src/core/ports/AuthRepositoryPort.ts`
-- [ ] **1.2.3** Criar `src/core/ports/LikeRepositoryPort.ts`
-- [ ] **1.2.4** Criar `src/core/ports/CachePort.ts`
+- [x] **1.2.1** Criar `src/core/ports/ArticleRepositoryPort.ts`
+- [x] **1.2.2** Criar `src/core/ports/AuthRepositoryPort.ts`
+- [x] **1.2.3** Criar `src/core/ports/LikeRepositoryPort.ts`
+- [x] **1.2.4** Criar `src/core/ports/CachePort.ts`
 
 ### 1.3 Erros de Domínio
 
-- [ ] **1.3.1** Criar `src/core/errors/DomainError.ts`
-- [ ] **1.3.2** Criar `src/core/errors/UnauthorizedError.ts`
-- [ ] **1.3.3** Criar `src/core/errors/ValidationError.ts`
+- [x] **1.3.1** Criar `src/core/errors/DomainError.ts`
+- [x] **1.3.2** Criar `src/core/errors/UnauthorizedError.ts`
+- [x] **1.3.3** Criar `src/core/errors/ValidationError.ts`
 
 ### 1.4 Use Cases — Articles
 
-- [ ] **1.4.1** Criar `src/core/use-cases/articles/CreateArticleUseCase.ts`
+- [x] **1.4.1** Criar `src/core/use-cases/articles/CreateArticleUseCase.ts`
   - Validar admin, validar campos, gerar slug, chamar repositório
-- [ ] **1.4.2** Criar `src/core/use-cases/articles/GetArticlesUseCase.ts`
+- [x] **1.4.2** Criar `src/core/use-cases/articles/GetArticlesUseCase.ts`
   - Buscar artigos publicados com cache
-- [ ] **1.4.3** Criar `src/core/use-cases/articles/GetArticleBySlugUseCase.ts`
+- [x] **1.4.3** Criar `src/core/use-cases/articles/GetArticleBySlugUseCase.ts`
   - Buscar artigo por slug com cache
-- [ ] **1.4.4** Criar `src/core/use-cases/articles/UpdateArticleUseCase.ts`
+- [x] **1.4.4** Criar `src/core/use-cases/articles/UpdateArticleUseCase.ts`
   - Validar admin, atualizar artigo
-- [ ] **1.4.5** Criar `src/core/use-cases/articles/DeleteArticleUseCase.ts`
+- [x] **1.4.5** Criar `src/core/use-cases/articles/DeleteArticleUseCase.ts`
   - Validar admin, deletar artigo, invalidar cache
 
 ### 1.5 Use Cases — Auth
 
-- [ ] **1.5.1** Criar `src/core/use-cases/auth/LoginUseCase.ts`
-- [ ] **1.5.2** Criar `src/core/use-cases/auth/LogoutUseCase.ts`
-- [ ] **1.5.3** Criar `src/core/use-cases/auth/GetCurrentUserUseCase.ts`
+- [x] **1.5.1** Criar `src/core/use-cases/auth/LoginUseCase.ts`
+- [x] **1.5.2** Criar `src/core/use-cases/auth/LogoutUseCase.ts`
+- [x] **1.5.3** Criar `src/core/use-cases/auth/GetCurrentUserUseCase.ts`
 
 ### 1.6 Use Cases — Likes
 
-- [ ] **1.6.1** Criar `src/core/use-cases/likes/ToggleLikeUseCase.ts`
+- [x] **1.6.1** Criar `src/core/use-cases/likes/ToggleLikeUseCase.ts`
   - Validar login, alternar like/dislike
-- [ ] **1.6.2** Criar `src/core/use-cases/likes/GetArticleLikesUseCase.ts`
+- [x] **1.6.2** Criar `src/core/use-cases/likes/GetArticleLikesUseCase.ts`
   - Obter resumo de avaliações de um artigo
 
 ### 1.7 Shared — Utilitários
 
-- [ ] **1.7.1** Criar `src/shared/utils/slugify.ts`
+- [x] **1.7.1** Criar `src/shared/utils/slugify.ts`
   - Função para converter título em slug
-- [ ] **1.7.2** Criar `src/shared/utils/dateFormat.ts`
+- [x] **1.7.2** Criar `src/shared/utils/dateFormat.ts`
   - Funções de formatação de data (pt-BR)
-- [ ] **1.7.3** Criar `src/shared/utils/validators.ts`
+- [x] **1.7.3** Criar `src/shared/utils/validators.ts`
   - Validadores de campos (título, conteúdo, etc.)
-- [ ] **1.7.4** Criar `src/shared/constants/cache.ts`
+- [x] **1.7.4** Criar `src/shared/constants/cache.ts`
   - Constantes de TTL para cache
-- [ ] **1.7.5** Criar `src/shared/constants/roles.ts`
+- [x] **1.7.5** Criar `src/shared/constants/roles.ts`
   - Constantes de roles de usuário
-- [ ] **1.7.6** Criar `src/shared/types/api.ts`
+- [x] **1.7.6** Criar `src/shared/types/api.ts`
   - Tipos de resposta padronizados
-- [ ] **1.7.7** Criar `src/shared/types/common.ts`
+- [x] **1.7.7** Criar `src/shared/types/common.ts`
   - Tipos utilitários genéricos
 
 ---
@@ -579,7 +579,8 @@
 
 ```
 Sprint 0  [##########] Setup do Projeto ✅
-Sprint 1  [          ] Core — Regras de Negócio
+Sprint 1  [##########] Core — Regras de Negócio ✅
+
 Sprint 2  [          ] Adapters — Firebase & Cache
 Sprint 3  [          ] DI Container & Contextos
 Sprint 4  [          ] Componentes de UI
@@ -594,7 +595,8 @@ Sprint 11 [          ] Polimento & Deploy
 
 > **Total de tarefas:** ~110 tarefas  
 > **Duração estimada:** ~20 dias  
-> **Status:** 🟢 Sprint 0 concluída
+> **Status:** 🟢 Sprint 0 concluída | 🟢 Sprint 1 concluída
+
 
 ---
 
@@ -603,7 +605,8 @@ Sprint 11 [          ] Polimento & Deploy
 ### 🔥 Must Have (MVP)
 
 - [x] Setup do projeto (Sprint 0)
-- [ ] Core entities + ports (Sprint 1)
+- [x] Core entities + ports (Sprint 1)
+
 - [ ] Firebase adapters (Sprint 2)
 - [ ] DI Container (Sprint 3)
 - [ ] Componentes UI básicos (Sprint 4)

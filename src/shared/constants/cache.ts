@@ -1,6 +1,6 @@
 export const CACHE_TTL = {
   ARTICLES_LIST: 5 * 60 * 1000,
-  ARTICLE_BY_SLUG: 10 * 60 * 1000,
-  ARTICLE_LIKES: 2 * 60 * 1000,
+  ARTICLE_DETAIL: 10 * 60 * 1000,
+  LIKES_SUMMARY: 2 * 60 * 1000,
   USER_SESSION: 30 * 60 * 1000,
 } as const;
