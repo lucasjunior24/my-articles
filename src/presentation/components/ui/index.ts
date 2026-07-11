@@ -7,3 +7,4 @@ export { CacheIndicator } from "./CacheIndicator";
 export { Modal } from "./Modal";
 export { ConfirmDialog } from "./ConfirmDialog";
 export { ErrorBoundary } from "./ErrorBoundary";
+export { Icon, type IconName } from "./Icon";

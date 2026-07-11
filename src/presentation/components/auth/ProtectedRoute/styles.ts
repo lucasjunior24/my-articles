@@ -13,7 +13,7 @@ export const errorContainer = "flex items-center justify-center min-h-[60vh]";
 export const errorCard =
   "text-center p-8 rounded-2xl bg-dracula-current/30 border border-dracula-current/50 max-w-md";
 
-export const errorIcon = "w-16 h-16 mx-auto mb-4 text-dracula-red";
+export const errorIcon = "";
 
 export const errorTitle = "text-xl font-bold text-dracula-fg mb-2";
 

@@ -2,11 +2,11 @@ import type { FC, ReactNode } from "react";
 import { Navigate, Link } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
 import { LoadingSpinner } from "../../ui/LoadingSpinner";
+import { Icon } from "../../ui/Icon";
 import {
   loadingContainer,
   errorContainer,
   errorCard,
-  errorIcon,
   errorTitle,
   errorMessage,
   errorLink,
@@ -71,19 +71,11 @@ export const ProtectedRoute: FC<ProtectedRouteProps> = ({
     return (
       <div className={errorContainer}>
         <div className={errorCard}>
-          <svg
-            className={errorIcon}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 15v2m0 0v2m0-2h2m-2 0H10m9.364-7.364A9 9 0 1112 3a9 9 0 017.364 4.636z"
-            />
-          </svg>
+          <Icon
+            name="exclamation-circle"
+            size="xl"
+            className="text-dracula-red mx-auto mb-4 w-12 h-12"
+          />
           <h2 className={errorTitle}>Acesso Restrito</h2>
           <p className={errorMessage}>
             Você não tem permissão para acessar esta página. Apenas

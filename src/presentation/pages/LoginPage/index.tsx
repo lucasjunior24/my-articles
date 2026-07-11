@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { LoadingSpinner } from "../../components/ui/LoadingSpinner";
+import { Icon } from "../../components/ui/Icon";
 
 /**
  * LoginPage — Página de login com Google.
@@ -33,33 +34,21 @@ export const LoginPage: FC = () => {
 
   return (
     <div className="flex items-center justify-center min-h-[70vh] px-4">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-sm">
         {/* Card */}
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-dracula-current/30 via-dracula-bg to-dracula-current/20 border border-dracula-current/30 p-8 md:p-10">
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-dracula-current/20 via-dracula-bg to-dracula-current/15 border border-dracula-current/20 p-8">
           {/* Background decoration */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-dracula-pink/5 rounded-full blur-2xl" />
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-dracula-cyan/5 rounded-full blur-2xl" />
+          <div className="absolute top-0 right-0 w-28 h-28 bg-dracula-pink/5 rounded-full blur-2xl" />
+          <div className="absolute bottom-0 left-0 w-20 h-20 bg-dracula-cyan/5 rounded-full blur-2xl" />
 
           <div className="relative z-10">
             {/* Icon */}
-            <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-dracula-pink/20 to-dracula-purple/20 flex items-center justify-center">
-              <svg
-                className="w-8 h-8 text-dracula-pink"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
-                />
-              </svg>
+            <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-dracula-pink/15 to-dracula-purple/15 flex items-center justify-center">
+              <Icon name="login" size="lg" className="text-dracula-pink" />
             </div>
 
-            <div className="text-center mb-8">
-              <h1 className="text-2xl font-bold text-dracula-fg mb-2">
+            <div className="text-center mb-7">
+              <h1 className="text-xl font-bold text-dracula-fg mb-1">
                 Entrar no Blog
               </h1>
               <p className="text-sm text-dracula-comment">
@@ -67,9 +56,10 @@ export const LoginPage: FC = () => {
               </p>
             </div>
 
+            {/* Google Login Button — mantém SVG colorido da marca Google */}
             <button
               onClick={login}
-              className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-white text-gray-900 font-semibold rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-lg shadow-white/5 hover:shadow-white/10 active:scale-[0.98]"
+              className="w-full flex items-center justify-center gap-3 px-5 py-3 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-200 shadow-sm hover:shadow active:scale-[0.98] text-sm"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
@@ -80,7 +70,7 @@ export const LoginPage: FC = () => {
               Entrar com Google
             </button>
 
-            <p className="mt-6 text-xs text-center text-dracula-comment/60 leading-relaxed">
+            <p className="mt-5 text-[11px] text-center text-dracula-comment/50 leading-relaxed">
               Ao entrar, você concorda com nossos termos de uso e política de
               privacidade.
             </p>
@@ -88,24 +78,12 @@ export const LoginPage: FC = () => {
         </div>
 
         {/* Back link */}
-        <div className="text-center mt-6">
+        <div className="text-center mt-5">
           <a
             href="/"
             className="inline-flex items-center gap-1.5 text-sm text-dracula-comment hover:text-dracula-cyan transition-colors"
           >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-              />
-            </svg>
+            <Icon name="arrow-left" size="xs" />
             Voltar para o blog
           </a>
         </div>
