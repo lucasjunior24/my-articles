@@ -290,7 +290,7 @@
 
 ### 5.1 Layout Principal
 
-- [ ] **5.1.1** Criar `MainLayout` (index.tsx + styles.ts)
+- [x] **5.1.1** Criar `MainLayout` (index.tsx)
   - Header com logo, navegação, AuthButton
   - Main content area
   - Footer
@@ -298,45 +298,45 @@
 
 ### 5.2 Hooks
 
-- [ ] **5.2.1** Criar `src/presentation/hooks/useArticles.ts`
+- [x] **5.2.1** Criar `src/presentation/hooks/useArticles.ts`
   - Hook para listar artigos com cache
-- [ ] **5.2.2** Criar `src/presentation/hooks/useArticle.ts`
+- [x] **5.2.2** Criar `src/presentation/hooks/useArticle.ts`
   - Hook para buscar artigo por slug com cache
-- [ ] **5.2.3** Criar `src/presentation/hooks/useCachedFetch.ts`
-  - Hook genérico de cache (já implementado na arquitetura)
-- [ ] **5.2.4** Criar `src/presentation/hooks/useInjection.ts`
+- [x] **5.2.3** Criar `src/presentation/hooks/useCachedFetch.ts`
+  - Hook genérico de cache
+- [x] **5.2.4** Criar `src/presentation/hooks/useInjection.ts`
   - Hook para acessar o container DI (wrapper do useDI)
 
 ### 5.3 Componentes de Artigo
 
-- [ ] **5.3.1** Criar `ArticleCard` (index.tsx + styles.ts)
+- [x] **5.3.1** Criar `ArticleCard` (index.tsx)
   - Card com imagem, tags, título, excerpt, autor, data
   - Link para página do artigo
-- [ ] **5.3.2** Criar `ArticleList` (index.tsx + styles.ts)
+- [x] **5.3.2** Criar `ArticleList` (index.tsx)
   - Grid de ArticleCards
   - Estados: loading, empty, error
-- [ ] **5.3.3** Criar `ArticleContent` (index.tsx + styles.ts)
+- [x] **5.3.3** Criar `ArticleContent` (index.tsx)
   - Layout de artigo completo (título, autor, data, conteúdo)
-- [ ] **5.3.4** Criar `MarkdownRenderer` (index.tsx + styles.ts)
+- [x] **5.3.4** Criar `MarkdownRenderer` (index.tsx)
   - Renderizar Markdown com `react-markdown`
   - Estilo Dracula para código, headings, links
 
 ### 5.4 Páginas
 
-- [ ] **5.4.1** Criar `HomePage` (index.tsx + styles.ts)
+- [x] **5.4.1** Criar `HomePage` (index.tsx)
   - Hero section com título e subtítulo
   - Grid de artigos com cache de 5min
   - Loading skeleton
   - Empty state
-- [ ] **5.4.2** Criar `ArticlePage` (index.tsx + styles.ts)
+- [x] **5.4.2** Criar `ArticlePage` (index.tsx)
   - Carregar artigo por slug com cache de 10min
   - Renderizar ArticleContent + MarkdownRenderer
   - LikeButton (se usuário logado)
   - CacheIndicator
-- [ ] **5.4.3** Criar `LoginPage` (index.tsx + styles.ts)
+- [x] **5.4.3** Criar `LoginPage` (index.tsx)
   - Botão "Entrar com Google"
   - Redirecionar se já logado
-- [ ] **5.4.4** Criar `NotFoundPage` (index.tsx + styles.ts)
+- [x] **5.4.4** Criar `NotFoundPage` (index.tsx)
   - Mensagem 404 com link para home
 
 ---
@@ -582,7 +582,7 @@ Sprint 1  [##########] Core — Regras de Negócio ✅
 Sprint 2  [##########] Adapters — Firebase & Cache ✅
 Sprint 3  [##########] DI Container & Contextos ✅
 Sprint 4  [##########] Componentes de UI ✅
-Sprint 5  [          ] Páginas Públicas
+Sprint 5  [##########] Páginas Públicas ✅
 Sprint 6  [          ] Autenticação & Autorização
 Sprint 7  [          ] Sistema de Like/Dislike
 Sprint 8  [          ] Admin — CRUD de Artigos
@@ -593,7 +593,7 @@ Sprint 11 [          ] Polimento & Deploy
 
 > **Total de tarefas:** ~110 tarefas  
 > **Duração estimada:** ~20 dias  
-> **Status:** 🟢 Sprint 0 concluída | 🟢 Sprint 1 concluída | 🟢 Sprint 2 concluída | 🟢 Sprint 3 concluída | 🟢 Sprint 4 concluída
+> **Status:** 🟢 Sprint 0 concluída | 🟢 Sprint 1 concluída | 🟢 Sprint 2 concluída | 🟢 Sprint 3 concluída | 🟢 Sprint 4 concluída | 🟢 Sprint 5 concluída
 
 
 ---
@@ -607,7 +607,7 @@ Sprint 11 [          ] Polimento & Deploy
 - [x] Firebase adapters (Sprint 2)
 - [x] DI Container (Sprint 3)
 - [x] Componentes UI básicos (Sprint 4)
-- [ ] HomePage + ArticlePage (Sprint 5)
+- [x] HomePage + ArticlePage (Sprint 5)
 - [ ] Login com Google (Sprint 6)
 - [ ] CRUD de artigos admin (Sprint 8)
 - [ ] Deploy (Sprint 11)

@@ -16,6 +16,13 @@ export class IPCacheAdapter implements CachePort {
     this.ipHash = ipHash;
   }
 
+  /**
+   * Returns the IP hash used for cache key isolation.
+   */
+  getIpHash(): string {
+    return this.ipHash;
+  }
+
   private buildKey(key: string): string {
     return `${STORAGE_PREFIX}_${key}_${this.ipHash}`;
   }
