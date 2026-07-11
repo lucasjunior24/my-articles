@@ -213,19 +213,19 @@
 
 ### 3.1 DI Container
 
-- [ ] **3.1.1** Criar `src/di/types.ts`
+- [x] **3.1.1** Criar `src/di/types.ts`
   - Tipo `Container` baseado no `typeof container`
-- [ ] **3.1.2** Criar `src/di/container.ts`
+- [x] **3.1.2** Criar `src/di/container.ts`
   - Instanciar todos os adapters (singleton)
   - Instanciar todos os use cases com suas dependências
   - Exportar objeto `container` com tipo `as const`
 
 ### 3.2 Contextos React
 
-- [ ] **3.2.1** Criar `src/presentation/contexts/DIContext.tsx`
+- [x] **3.2.1** Criar `src/presentation/contexts/DIContext.tsx`
   - `DIProvider` com o container
   - Hook `useDI()` com validação
-- [ ] **3.2.2** Criar `src/presentation/contexts/AuthContext.tsx`
+- [x] **3.2.2** Criar `src/presentation/contexts/AuthContext.tsx`
   - `AuthProvider` com estado de autenticação
   - Escutar `onAuthStateChanged`
   - Hook `useAuth()` (ou usar o hook separado)
@@ -582,7 +582,7 @@ Sprint 0  [##########] Setup do Projeto ✅
 Sprint 1  [##########] Core — Regras de Negócio ✅
 
 Sprint 2  [##########] Adapters — Firebase & Cache ✅
-Sprint 3  [          ] DI Container & Contextos
+Sprint 3  [##########] DI Container & Contextos ✅
 Sprint 4  [          ] Componentes de UI
 Sprint 5  [          ] Páginas Públicas
 Sprint 6  [          ] Autenticação & Autorização
@@ -595,7 +595,7 @@ Sprint 11 [          ] Polimento & Deploy
 
 > **Total de tarefas:** ~110 tarefas  
 > **Duração estimada:** ~20 dias  
-> **Status:** 🟢 Sprint 0 concluída | 🟢 Sprint 1 concluída | 🟢 Sprint 2 concluída
+> **Status:** 🟢 Sprint 0 concluída | 🟢 Sprint 1 concluída | 🟢 Sprint 2 concluída | 🟢 Sprint 3 concluída
 
 
 ---
@@ -607,7 +607,7 @@ Sprint 11 [          ] Polimento & Deploy
 - [x] Setup do projeto (Sprint 0)
 - [x] Core entities + ports (Sprint 1)
 - [x] Firebase adapters (Sprint 2)
-- [ ] DI Container (Sprint 3)
+- [x] DI Container (Sprint 3)
 - [ ] Componentes UI básicos (Sprint 4)
 - [ ] HomePage + ArticlePage (Sprint 5)
 - [ ] Login com Google (Sprint 6)
