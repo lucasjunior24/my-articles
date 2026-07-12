@@ -23,8 +23,6 @@ export class CreateArticleUseCase {
   }
 
   async execute(data: CreateArticleDTO, userId: string): Promise<Article> {
-    console.log("CreateArticleUseCase: data ", data);
-
     if (!data.title || !isValidTitle(data.title)) {
       throw new ValidationError(
         "O título do artigo é obrigatório e deve ter entre 3 e 200 caracteres",

@@ -15,7 +15,6 @@ export class GetArticlesUseCase {
   async execute(ipHash: string): Promise<Article[]> {
     const cacheKey = `articles_list_${ipHash}`;
     const cached = await this.cache.get<Article[]>(cacheKey);
-
     if (cached) {
       return cached.data;
     }

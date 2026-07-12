@@ -45,6 +45,7 @@ export class RequestWriterUseCase {
     }
 
     // Cria a solicitação
+    console.log("Criando solicitação de writer para usuário: ", user.id);
     const request = await this.writerRequestRepo.createRequest({
       userId: user.id,
       userEmail: user.email,

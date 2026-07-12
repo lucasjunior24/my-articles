@@ -34,3 +34,5 @@ rules
 
 
 .env
+
+serviceAccountKey.json

@@ -28,6 +28,8 @@ export function RequestWriterButton({
   // Não renderiza se não estiver logado
   if (!user) return null;
 
+  // if (request === null) return null;
+
   // Não renderiza se já for admin ou writer
   if (isAdmin || isWriter) return null;
 
