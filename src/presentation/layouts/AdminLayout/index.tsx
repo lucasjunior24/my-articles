@@ -33,10 +33,25 @@ const navItems: NavItem[] = [
  * Inclui sidebar com navegação admin, header com info do admin
  * e main content area. Usa Outlet do React Router para renderizar
  * as páginas filhas.
+ *
+ * Itens exclusivos para admin (ex: Solicitações) são adicionados
+ * dinamicamente ao nav via `visibleNavItems`.
  */
 export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
-  const { user, logout } = useAuth();
+  const { user, logout, isAdmin } = useAuth();
   const location = useLocation();
+
+  const adminOnlyItems: NavItem[] = [
+    {
+      label: "Solicitações",
+      path: "/admin/solicitacoes-writer",
+      icon: <Icon name="user" size="sm" />,
+    },
+  ];
+
+  const visibleNavItems: NavItem[] = isAdmin
+    ? [...navItems, ...adminOnlyItems]
+    : navItems;
 
   return (
     <div className="min-h-screen flex bg-dracula-bg">
@@ -52,13 +67,13 @@ export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
             <span>Blog Lucas</span>
           </Link>
           <span className="block mt-0.5 text-[10px] font-semibold text-dracula-comment uppercase tracking-widest">
-            Painel Admin
+            Painel
           </span>
         </div>
 
         {/* Navigation */}
         <nav className="flex-1 px-3 py-3 space-y-0.5">
-          {navItems.map((item) => {
+          {visibleNavItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
               <Link
@@ -88,6 +103,7 @@ export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
           </Link>
           {user && (
             <button
+              type="button"
               onClick={logout}
               className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-dracula-red/80 hover:text-dracula-red hover:bg-dracula-red/10 transition-colors"
             >
@@ -103,7 +119,7 @@ export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
         {/* Header — mobile-first */}
         <header className="sticky top-0 z-40 bg-dracula-bg/85 backdrop-blur-md border-b border-dracula-current/20">
           <div className="flex items-center justify-between h-14 px-4 sm:px-6">
-            {/* Mobile: logo + admin badge */}
+            {/* Mobile: logo + badge */}
             <div className="md:hidden flex items-center gap-2">
               <Link
                 to="/"
@@ -112,13 +128,13 @@ export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
                 Blog Lucas
               </Link>
               <span className="text-[10px] font-semibold text-dracula-comment uppercase tracking-wider bg-dracula-current/30 px-1.5 py-0.5 rounded">
-                Admin
+                Painel
               </span>
             </div>
 
             {/* Mobile navigation pills */}
             <nav className="md:hidden flex items-center gap-1">
-              {navItems.map((item) => {
+              {visibleNavItems.map((item) => {
                 const isActive = location.pathname === item.path;
                 return (
                   <Link
@@ -148,6 +164,7 @@ export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
                     </span>
                   </div>
                   <button
+                    type="button"
                     onClick={logout}
                     className="sm:hidden px-2.5 py-1.5 text-xs font-medium text-dracula-red hover:bg-dracula-red/10 rounded-lg transition-colors"
                   >

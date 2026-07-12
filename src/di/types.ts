@@ -1,6 +1,7 @@
 import type { FirebaseArticleAdapter } from "../adapters/firebase/FirebaseArticleAdapter";
 import type { FirebaseAuthAdapter } from "../adapters/firebase/FirebaseAuthAdapter";
 import type { FirebaseLikeAdapter } from "../adapters/firebase/FirebaseLikeAdapter";
+import type { FirebaseWriterRequestAdapter } from "../adapters/firebase/FirebaseWriterRequestAdapter";
 import type { IPCacheAdapter } from "../adapters/cache/IPCacheAdapter";
 import type { CreateArticleUseCase } from "../core/use-cases/articles/CreateArticleUseCase";
 import type { GetArticlesUseCase } from "../core/use-cases/articles/GetArticlesUseCase";
@@ -12,6 +13,9 @@ import type { LogoutUseCase } from "../core/use-cases/auth/LogoutUseCase";
 import type { GetCurrentUserUseCase } from "../core/use-cases/auth/GetCurrentUserUseCase";
 import type { ToggleLikeUseCase } from "../core/use-cases/likes/ToggleLikeUseCase";
 import type { GetArticleLikesUseCase } from "../core/use-cases/likes/GetArticleLikesUseCase";
+import type { RequestWriterUseCase } from "../core/use-cases/writer/RequestWriterUseCase";
+import type { ApproveWriterUseCase } from "../core/use-cases/writer/ApproveWriterUseCase";
+import type { GetWriterRequestsUseCase } from "../core/use-cases/writer/GetWriterRequestsUseCase";
 
 /**
  * Container interface representing the shape of the DI container.
@@ -24,6 +28,7 @@ export interface Container {
   authAdapter: FirebaseAuthAdapter;
   likeAdapter: FirebaseLikeAdapter;
   cacheAdapter: IPCacheAdapter;
+  writerRequestAdapter: FirebaseWriterRequestAdapter;
 
   // Use Cases — Articles
   createArticleUseCase: CreateArticleUseCase;
@@ -40,4 +45,9 @@ export interface Container {
   // Use Cases — Likes
   toggleLikeUseCase: ToggleLikeUseCase;
   getArticleLikesUseCase: GetArticleLikesUseCase;
+
+  // Use Cases — Writer Requests
+  requestWriterUseCase: RequestWriterUseCase;
+  approveWriterUseCase: ApproveWriterUseCase;
+  getWriterRequestsUseCase: GetWriterRequestsUseCase;
 }

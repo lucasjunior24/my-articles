@@ -6,4 +6,5 @@ export interface AuthRepositoryPort {
   getCurrentUser(): Promise<AppUser | null>;
   onAuthStateChanged(callback: (user: AppUser | null) => void): () => void;
   isAdmin(userId: string): Promise<boolean>;
+  isWriter(userId: string): Promise<boolean>;
 }

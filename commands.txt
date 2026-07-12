@@ -1,0 +1,5 @@
+# Tornar um usuário writer
+node scripts/set-role.js <uid-do-usuario> --role writer
+
+# Tornar um usuário admin
+node scripts/set-role.js <uid-do-usuario> --role admin

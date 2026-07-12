@@ -1,5 +1,6 @@
 export const ROLES = {
   ADMIN: "admin",
+  WRITER: "writer",
   READER: "reader",
 } as const;
 

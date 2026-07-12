@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useArticles } from "../../hooks/useArticles";
 import { ArticleList } from "../../components/article/ArticleList";
 import { Icon } from "../../components/ui/Icon";
+import { RequestWriterButton } from "@/presentation/components/writer/RequestWriterButton";
 
 /**
  * HomePage — Página inicial do blog.
@@ -76,6 +77,8 @@ export const HomePage: FC = () => {
           </div>
         </div>
       </section>
+
+      <RequestWriterButton></RequestWriterButton>
 
       {/* Articles Section */}
       <section id="articles">

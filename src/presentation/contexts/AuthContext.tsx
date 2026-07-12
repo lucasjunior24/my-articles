@@ -67,7 +67,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   }, [container]);
 
-  const isAdmin = true;
+  // Derive roles from user.role (admin > writer > reader)
+  const isAdmin = user?.role === "admin";
+  const isWriter = user?.role === "writer" || user?.role === "admin";
 
   return (
     <AuthContext.Provider
@@ -75,6 +77,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         user,
         isLoading,
         isAdmin,
+        isWriter,
         login,
         logout,
       }}

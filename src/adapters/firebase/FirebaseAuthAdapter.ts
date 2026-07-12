@@ -7,11 +7,11 @@ import {
 } from "firebase/auth";
 import { getFirebaseAuth } from "./firebaseConfig";
 import type { AuthRepositoryPort } from "@/core/ports/AuthRepositoryPort";
-import type { AppUser } from "@/core/entities/User";
+import type { AppUser, UserRole } from "@/core/entities/User";
 
 function mapFirebaseUserToAppUser(
   firebaseUser: FirebaseUser,
-  role: "admin" | "reader" = "reader",
+  role: UserRole = "reader",
 ): AppUser {
   return {
     id: firebaseUser.uid,
@@ -34,10 +34,9 @@ export class FirebaseAuthAdapter implements AuthRepositoryPort {
       firebaseUser,
     );
 
-    // Check if user is admin via custom claims
-    const isAdmin = await this.checkIsAdmin(firebaseUser.uid);
+    const role = await this.determineRole(firebaseUser.uid);
 
-    return mapFirebaseUserToAppUser(firebaseUser, isAdmin ? "admin" : "reader");
+    return mapFirebaseUserToAppUser(firebaseUser, role);
   }
 
   async logout(): Promise<void> {
@@ -51,9 +50,9 @@ export class FirebaseAuthAdapter implements AuthRepositoryPort {
       return null;
     }
 
-    const isAdmin = await this.checkIsAdmin(firebaseUser.uid);
+    const role = await this.determineRole(firebaseUser.uid);
 
-    return mapFirebaseUserToAppUser(firebaseUser, isAdmin ? "admin" : "reader");
+    return mapFirebaseUserToAppUser(firebaseUser, role);
   }
 
   onAuthStateChanged(callback: (user: AppUser | null) => void): () => void {
@@ -65,11 +64,8 @@ export class FirebaseAuthAdapter implements AuthRepositoryPort {
           return;
         }
 
-        const isAdmin = await this.checkIsAdmin(firebaseUser.uid);
-        const appUser = mapFirebaseUserToAppUser(
-          firebaseUser,
-          isAdmin ? "admin" : "reader",
-        );
+        const role = await this.determineRole(firebaseUser.uid);
+        const appUser = mapFirebaseUserToAppUser(firebaseUser, role);
         callback(appUser);
       },
     );
@@ -79,6 +75,27 @@ export class FirebaseAuthAdapter implements AuthRepositoryPort {
 
   async isAdmin(userId: string): Promise<boolean> {
     return this.checkIsAdmin(userId);
+  }
+
+  async isWriter(userId: string): Promise<boolean> {
+    return this.checkIsWriter(userId);
+  }
+
+  /**
+   * Determina a role do usuário com a seguinte precedência:
+   * admin > writer > reader
+   *
+   * Se o usuário tiver ambas as claims admin e writer, será tratado como admin.
+   */
+  private async determineRole(uid: string): Promise<UserRole> {
+    const [isAdmin, isWriter] = await Promise.all([
+      this.checkIsAdmin(uid),
+      this.checkIsWriter(uid),
+    ]);
+
+    if (isAdmin) return "admin";
+    if (isWriter) return "writer";
+    return "reader";
   }
 
   private async checkIsAdmin(uid: string): Promise<boolean> {
@@ -95,6 +112,25 @@ export class FirebaseAuthAdapter implements AuthRepositoryPort {
         idTokenResult.claims,
       );
       return idTokenResult.claims.admin === true;
+    } catch {
+      return false;
+    }
+  }
+
+  private async checkIsWriter(uid: string): Promise<boolean> {
+    try {
+      const firebaseUser = this.auth.currentUser;
+
+      if (!firebaseUser || firebaseUser.uid !== uid) {
+        return false;
+      }
+
+      const idTokenResult = await firebaseUser.getIdTokenResult();
+      console.log(
+        "FirebaseAuthAdapter.checkIsWriter: idTokenResult.claims",
+        idTokenResult.claims,
+      );
+      return idTokenResult.claims.writer === true;
     } catch {
       return false;
     }

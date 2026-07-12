@@ -53,6 +53,13 @@ export class CreateArticleUseCase {
       throw new UnauthorizedError("Usuário não autenticado");
     }
 
+    // Apenas writer e admin podem criar artigos
+    if (user.role !== "writer" && user.role !== "admin") {
+      throw new UnauthorizedError(
+        "Apenas escritores e administradores podem criar artigos",
+      );
+    }
+
     const articleData: CreateArticleDTO = {
       ...data,
       status: data.status ?? "draft",

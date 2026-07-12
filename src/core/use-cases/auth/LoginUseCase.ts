@@ -10,6 +10,7 @@ export class LoginUseCase {
 
   async execute(): Promise<AppUser> {
     const user = await this.authRepo.loginWithGoogle();
-    return { ...user, role: "admin" };
+    // return { ...user, role: "admin" };
+    return user;
   }
 }

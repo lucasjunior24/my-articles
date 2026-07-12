@@ -20,6 +20,12 @@ interface ProtectedRouteProps {
    */
   requireAdmin?: boolean;
   /**
+   * Se `true`, usuários com role "admin" ou "writer" podem acessar.
+   * Tem precedência menor que `requireAdmin`.
+   * @default false
+   */
+  requireWriter?: boolean;
+  /**
    * Path para redirecionar quando não autenticado.
    * @default "/login"
    */
@@ -30,7 +36,9 @@ interface ProtectedRouteProps {
  * ProtectedRoute — Componente de proteção de rotas.
  *
  * Verifica se o usuário está autenticado e, opcionalmente,
- * se possui role de admin. Redireciona conforme necessário.
+ * se possui a role necessária. Redireciona conforme necessário.
+ *
+ * Precedência de verificação: requireAdmin > requireWriter > autenticado
  *
  * @example
  * ```tsx
@@ -43,14 +51,20 @@ interface ProtectedRouteProps {
  * <ProtectedRoute requireAdmin>
  *   <AdminPanel />
  * </ProtectedRoute>
+ *
+ * // Protege rota para admin e writer
+ * <ProtectedRoute requireWriter>
+ *   <WriterPanel />
+ * </ProtectedRoute>
  * ```
  */
 export const ProtectedRoute: FC<ProtectedRouteProps> = ({
   children,
   requireAdmin = false,
+  requireWriter = false,
   redirectTo = "/login",
 }) => {
-  const { user, isLoading, isAdmin } = useAuth();
+  const { user, isLoading, isAdmin, isWriter } = useAuth();
 
   console.log("ProtectedRoute: user", user);
   // ── Loading State ──
@@ -67,7 +81,7 @@ export const ProtectedRoute: FC<ProtectedRouteProps> = ({
     return <Navigate to={redirectTo} replace />;
   }
 
-  // ── Not Admin (but admin required) → Redirect to home ──
+  // ── Admin required → only admin ──
   if (requireAdmin && !isAdmin) {
     return (
       <div className={errorContainer}>
@@ -81,6 +95,29 @@ export const ProtectedRoute: FC<ProtectedRouteProps> = ({
           <p className={errorMessage}>
             Você não tem permissão para acessar esta página. Apenas
             administradores podem entrar aqui.
+          </p>
+          <Link to="/" className={errorLink}>
+            Voltar para Home
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // ── Writer required → admin or writer ──
+  if (requireWriter && !isWriter) {
+    return (
+      <div className={errorContainer}>
+        <div className={errorCard}>
+          <Icon
+            name="exclamation-circle"
+            size="xl"
+            className="text-dracula-red mx-auto mb-4 w-12 h-12"
+          />
+          <h2 className={errorTitle}>Acesso Restrito</h2>
+          <p className={errorMessage}>
+            Você não tem permissão para acessar esta página. Apenas
+            administradores e escritores podem entrar aqui.
           </p>
           <Link to="/" className={errorLink}>
             Voltar para Home

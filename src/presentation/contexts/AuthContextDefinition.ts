@@ -5,6 +5,7 @@ export interface AuthContextValue {
   user: AppUser | null;
   isLoading: boolean;
   isAdmin: boolean;
+  isWriter: boolean;
   login: () => Promise<void>;
   logout: () => Promise<void>;
 }

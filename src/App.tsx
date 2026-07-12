@@ -8,6 +8,7 @@ import { NotFoundPage } from "./presentation/pages/NotFoundPage";
 import { DashboardPage } from "./presentation/pages/admin/DashboardPage";
 import { NewArticlePage } from "./presentation/pages/admin/NewArticlePage";
 import { EditArticlePage } from "./presentation/pages/admin/EditArticlePage";
+import { WriterRequestsPage } from "./presentation/pages/admin/WriterRequestsPage";
 import { ProtectedRoute } from "./presentation/components/auth/ProtectedRoute";
 
 function App() {
@@ -21,11 +22,11 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
 
-        {/* Admin routes — protected */}
+        {/* Admin/Writers routes — protected (admin + writer) */}
         <Route
           path="/admin"
           element={
-            <ProtectedRoute requireAdmin>
+            <ProtectedRoute requireWriter>
               <AdminLayout />
             </ProtectedRoute>
           }
@@ -33,6 +34,15 @@ function App() {
           <Route index element={<DashboardPage />} />
           <Route path="artigos/novo" element={<NewArticlePage />} />
           <Route path="artigos/editar/:id" element={<EditArticlePage />} />
+          {/* Admin-only routes */}
+          <Route
+            path="solicitacoes-writer"
+            element={
+              <ProtectedRoute requireAdmin>
+                <WriterRequestsPage />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

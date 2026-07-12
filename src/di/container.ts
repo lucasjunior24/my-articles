@@ -1,6 +1,7 @@
 import { FirebaseArticleAdapter } from "../adapters/firebase/FirebaseArticleAdapter";
 import { FirebaseAuthAdapter } from "../adapters/firebase/FirebaseAuthAdapter";
 import { FirebaseLikeAdapter } from "../adapters/firebase/FirebaseLikeAdapter";
+import { FirebaseWriterRequestAdapter } from "../adapters/firebase/FirebaseWriterRequestAdapter";
 import { IPCacheAdapter } from "../adapters/cache/IPCacheAdapter";
 import { getIPHash } from "../adapters/http/IPFetcher";
 
@@ -16,6 +17,10 @@ import { GetCurrentUserUseCase } from "../core/use-cases/auth/GetCurrentUserUseC
 
 import { ToggleLikeUseCase } from "../core/use-cases/likes/ToggleLikeUseCase";
 import { GetArticleLikesUseCase } from "../core/use-cases/likes/GetArticleLikesUseCase";
+
+import { RequestWriterUseCase } from "../core/use-cases/writer/RequestWriterUseCase";
+import { ApproveWriterUseCase } from "../core/use-cases/writer/ApproveWriterUseCase";
+import { GetWriterRequestsUseCase } from "../core/use-cases/writer/GetWriterRequestsUseCase";
 
 import type { Container } from "./types";
 
@@ -41,6 +46,7 @@ export async function createContainer(): Promise<Container> {
   const authAdapter = new FirebaseAuthAdapter();
   const likeAdapter = new FirebaseLikeAdapter();
   const cacheAdapter = new IPCacheAdapter(ipHash);
+  const writerRequestAdapter = new FirebaseWriterRequestAdapter();
 
   // ── Use Cases — Articles ──
   const createArticleUseCase = new CreateArticleUseCase(
@@ -79,12 +85,27 @@ export async function createContainer(): Promise<Container> {
   const toggleLikeUseCase = new ToggleLikeUseCase(likeAdapter, authAdapter);
   const getArticleLikesUseCase = new GetArticleLikesUseCase(likeAdapter);
 
+  // ── Use Cases — Writer Requests ──
+  const requestWriterUseCase = new RequestWriterUseCase(
+    authAdapter,
+    writerRequestAdapter,
+  );
+  const approveWriterUseCase = new ApproveWriterUseCase(
+    authAdapter,
+    writerRequestAdapter,
+  );
+  const getWriterRequestsUseCase = new GetWriterRequestsUseCase(
+    authAdapter,
+    writerRequestAdapter,
+  );
+
   return {
     // Adapters
     articleAdapter,
     authAdapter,
     likeAdapter,
     cacheAdapter,
+    writerRequestAdapter,
 
     // Use Cases — Articles
     createArticleUseCase,
@@ -101,5 +122,10 @@ export async function createContainer(): Promise<Container> {
     // Use Cases — Likes
     toggleLikeUseCase,
     getArticleLikesUseCase,
+
+    // Use Cases — Writer Requests
+    requestWriterUseCase,
+    approveWriterUseCase,
+    getWriterRequestsUseCase,
   };
 }
