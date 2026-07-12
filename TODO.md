@@ -382,18 +382,18 @@
 
 ### 7.1 Componentes de Like
 
-- [ ] **7.1.1** Criar `LikeButton` (index.tsx + styles.ts)
+- [x] **7.1.1** Criar `LikeButton` (index.tsx + styles.ts)
   - Botões de like/dislike com ícones SVG
   - Estado ativo/inativo com cores Dracula
   - Contador de votos
   - Desabilitado se não logado
-- [ ] **7.1.2** Criar `LikeCounter` (index.tsx + styles.ts)
+- [x] **7.1.2** Criar `LikeCounter` (index.tsx + styles.ts)
   - Exibir total de likes e dislikes
   - Barra de proporção visual
 
 ### 7.2 Hook de Like
 
-- [ ] **7.2.1** Criar `src/presentation/hooks/useLike.ts`
+- [x] **7.2.1** Criar `src/presentation/hooks/useLike.ts`
   - Carregar resumo de avaliações
   - Alternar voto (like/dislike/none)
   - Estado de loading
@@ -583,7 +583,7 @@ Sprint 3  [##########] DI Container & Contextos ✅
 Sprint 4  [##########] Componentes de UI ✅
 Sprint 5  [##########] Páginas Públicas ✅
 Sprint 6  [##########] Autenticação & Autorização ✅
-Sprint 7  [          ] Sistema de Like/Dislike
+Sprint 7  [##########] Sistema de Like/Dislike ✅
 Sprint 8  [##########] Admin — CRUD de Artigos ✅
 Sprint 9  [          ] Cache por IP & Performance
 Sprint 10 [          ] Testes
@@ -611,7 +611,7 @@ Sprint 11 [          ] Polimento & Deploy
 
 ### ⭐ Nice to Have
 
-- [ ] Like/Dislike (Sprint 7)
+- [x] Like/Dislike (Sprint 7)
 - [ ] Cache por IP (Sprint 9)
 - [ ] Testes (Sprint 10)
 - [ ] Animações (Sprint 11)

@@ -1,15 +1,20 @@
-import type { FC } from "react";
+import { type FC } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useArticle } from "../../hooks/useArticle";
+import { useLike } from "../../hooks/useLike";
+import { useAuth } from "../../hooks/useAuth";
 import { ArticleContent } from "../../components/article/ArticleContent";
+import { LikeButton } from "../../components/likes/LikeButton";
+import { LikeCounter } from "../../components/likes/LikeCounter";
 import { LoadingSpinner } from "../../components/ui/LoadingSpinner";
 import { ErrorMessage } from "../../components/ui/ErrorMessage";
 
 /**
  * ArticlePage — Página de detalhe de um artigo.
  *
- * Carrega o artigo por slug com cache de 10min e renderiza
- * o conteúdo completo com ArticleContent + MarkdownRenderer.
+ * Carrega o artigo por slug com cache de 10min, renderiza
+ * o conteúdo completo com ArticleContent + MarkdownRenderer
+ * e exibe o sistema de like/dislike para usuários autenticados.
  *
  * @example
  * ```tsx
@@ -19,6 +24,15 @@ import { ErrorMessage } from "../../components/ui/ErrorMessage";
 export const ArticlePage: FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const { article, isLoading, error, refetch } = useArticle(slug);
+  const { user } = useAuth();
+  const {
+    likeCount,
+    dislikeCount,
+    userVote,
+    isLoading: isLikeLoading,
+    toggleLike,
+    toggleDislike,
+  } = useLike(article?.id);
 
   // Loading state
   if (isLoading) {
@@ -66,6 +80,36 @@ export const ArticlePage: FC = () => {
   return (
     <div className="py-4">
       <ArticleContent article={article} />
+
+      {/* Seção de Like/Dislike */}
+      <div className="max-w-3xl mx-auto mt-10 pt-8 border-t border-dracula-current/40">
+        <div className="flex flex-col items-center gap-4">
+          <LikeButton
+            likeCount={likeCount}
+            dislikeCount={dislikeCount}
+            userVote={userVote}
+            isLoading={isLikeLoading}
+            isLoggedIn={!!user}
+            onLike={toggleLike}
+            onDislike={toggleDislike}
+          />
+
+          <LikeCounter likeCount={likeCount} dislikeCount={dislikeCount} />
+
+          {/* Mensagem para usuários não logados */}
+          {!user && (
+            <p className="text-sm text-dracula-comment text-center">
+              <Link
+                to="/login"
+                className="text-dracula-cyan hover:underline font-medium"
+              >
+                Faça login
+              </Link>{" "}
+              para avaliar este artigo
+            </p>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

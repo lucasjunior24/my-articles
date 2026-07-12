@@ -29,6 +29,10 @@ export class FirebaseAuthAdapter implements AuthRepositoryPort {
   async loginWithGoogle(): Promise<AppUser> {
     const result = await signInWithPopup(this.auth, this.googleProvider);
     const firebaseUser = result.user;
+    console.log(
+      "FirebaseAuthAdapter.loginWithGoogle: user logged in",
+      firebaseUser,
+    );
 
     // Check if user is admin via custom claims
     const isAdmin = await this.checkIsAdmin(firebaseUser.uid);
@@ -86,6 +90,10 @@ export class FirebaseAuthAdapter implements AuthRepositoryPort {
       }
 
       const idTokenResult = await firebaseUser.getIdTokenResult();
+      console.log(
+        "FirebaseAuthAdapter.checkIsAdmin: idTokenResult.claims",
+        idTokenResult.claims,
+      );
       return idTokenResult.claims.admin === true;
     } catch {
       return false;
