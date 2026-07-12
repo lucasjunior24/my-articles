@@ -52,6 +52,7 @@ export const ProtectedRoute: FC<ProtectedRouteProps> = ({
 }) => {
   const { user, isLoading, isAdmin } = useAuth();
 
+  console.log("ProtectedRoute: user", user);
   // ── Loading State ──
   if (isLoading) {
     return (

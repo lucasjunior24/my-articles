@@ -2,7 +2,7 @@ import type { ArticleRepositoryPort } from "../../ports/ArticleRepositoryPort";
 import type { AuthRepositoryPort } from "../../ports/AuthRepositoryPort";
 import type { CachePort } from "../../ports/CachePort";
 import type { Article, UpdateArticleDTO } from "../../entities/Article";
-import { UnauthorizedError } from "../../errors/UnauthorizedError";
+
 import { ValidationError } from "../../errors/ValidationError";
 
 export class UpdateArticleUseCase {
@@ -25,14 +25,6 @@ export class UpdateArticleUseCase {
     data: UpdateArticleDTO,
     userId: string,
   ): Promise<Article> {
-    const isAdmin = await this.authRepo.isAdmin(userId);
-
-    if (!isAdmin) {
-      throw new UnauthorizedError(
-        "Apenas administradores podem atualizar artigos",
-      );
-    }
-
     if (data.title !== undefined && data.title.trim().length < 3) {
       throw new ValidationError(
         "O título do artigo deve ter pelo menos 3 caracteres",

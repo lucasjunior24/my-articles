@@ -1,4 +1,5 @@
 export function formatDate(date: Date): string {
+  console.log("formatDate: date", date);
   return date.toLocaleDateString("pt-BR", {
     day: "2-digit",
     month: "long",

@@ -283,7 +283,7 @@ export const DashboardPage: FC = () => {
                     </td>
                     <td className="px-4 py-3 hidden lg:table-cell">
                       <span className="text-xs text-dracula-comment">
-                        {formatDate(article.createdAt)}
+                        {formatDate(new Date(article.createdAt))}
                       </span>
                     </td>
                     <td className="px-4 py-3">

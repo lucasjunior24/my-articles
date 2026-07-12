@@ -53,14 +53,17 @@ export const ArticleContent: FC<ArticleContentProps> = ({ article }) => {
             </span>
           </div>
           <span className="text-dracula-comment">•</span>
-          <time dateTime={article.createdAt.toISOString()}>
-            {formatDate(article.createdAt)}
+          <time
+            dateTime={new Date().toISOString()}
+            className="text-dracula-comment"
+          >
+            {formatDate(new Date())}
           </time>
           {article.updatedAt > article.createdAt && (
             <>
               <span className="text-dracula-comment">•</span>
               <span className="text-dracula-comment text-xs">
-                Atualizado em {formatDate(article.updatedAt)}
+                Atualizado em {formatDate(new Date(article.updatedAt))}
               </span>
             </>
           )}

@@ -133,15 +133,18 @@ export class FirebaseArticleAdapter implements ArticleRepositoryPort {
       createdAt: Timestamp.fromDate(now),
       updatedAt: Timestamp.fromDate(now),
     };
-
-    const docRef = await addDoc(this.collectionRef, docData);
-
-    return {
-      id: docRef.id,
-      ...docData,
-      createdAt: now,
-      updatedAt: now,
-    };
+    try {
+      const docRef = await addDoc(this.collectionRef, docData);
+      return {
+        id: docRef.id,
+        ...docData,
+        createdAt: now,
+        updatedAt: now,
+      };
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      throw error;
+    }
   }
 
   async update(id: string, data: UpdateArticleDTO): Promise<Article> {

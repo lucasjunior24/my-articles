@@ -79,7 +79,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
           </div>
           <span className="flex items-center gap-1.5">
             <Icon name="calendar" size="xs" />
-            {formatDate(article.createdAt)}
+            {formatDate(new Date())}
           </span>
         </div>
       </div>

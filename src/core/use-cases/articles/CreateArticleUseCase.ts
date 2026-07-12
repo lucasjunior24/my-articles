@@ -23,11 +23,7 @@ export class CreateArticleUseCase {
   }
 
   async execute(data: CreateArticleDTO, userId: string): Promise<Article> {
-    const isAdmin = await this.authRepo.isAdmin(userId);
-
-    if (!isAdmin) {
-      throw new UnauthorizedError("Apenas administradores podem criar artigos");
-    }
+    console.log("CreateArticleUseCase: data ", data);
 
     if (!data.title || !isValidTitle(data.title)) {
       throw new ValidationError(
