@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useAuth } from "../../../hooks/useAuth";
 import { useDI } from "../../../hooks/useDI";
 import { Button } from "../../../components/ui/Button";
@@ -22,24 +22,42 @@ export function WriterRequestsPage() {
     "pending" | "approved" | "rejected" | "all"
   >("all");
 
-  const loadRequests = useCallback(async () => {
-    if (!user) return;
-    setIsLoading(true);
-    setError(null);
-    try {
-      const result = await container.getWriterRequestsUseCase.execute(
-        user.id,
-        filter === "all" ? undefined : filter,
-      );
-      setRequests(result);
-    } catch (err) {
-      const message =
-        err instanceof Error ? err.message : "Erro ao carregar solicitações";
-      setError(message);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [user, container, filter]);
+  const loadRequests = useCallback(
+    async (filterValue: "pending" | "approved" | "rejected" | "all") => {
+      if (!user) return;
+      setIsLoading(true);
+      setError(null);
+      try {
+        const result = await container.getWriterRequestsUseCase.execute(
+          user.id,
+          filterValue === "all" ? undefined : filterValue,
+        );
+        setRequests(result);
+      } catch (err) {
+        const message =
+          err instanceof Error ? err.message : "Erro ao carregar solicitações";
+        setError(message);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [container, user],
+  );
+
+  useEffect(() => {
+    loadRequests(filter); // eslint-disable-line react-hooks/set-state-in-effect
+  }, [filter, loadRequests]);
+
+  const handleFilterChange = (
+    f: "pending" | "approved" | "rejected" | "all",
+  ) => {
+    setFilter(f);
+    loadRequests(f);
+  };
+
+  const handleRetry = () => {
+    loadRequests(filter);
+  };
 
   const handleAction = async (
     requestId: string,
@@ -54,7 +72,7 @@ export function WriterRequestsPage() {
         user.id,
         user.displayName,
       );
-      await loadRequests();
+      await loadRequests(filter);
     } catch (err) {
       const message =
         err instanceof Error ? err.message : "Erro ao processar solicitação";
@@ -91,7 +109,7 @@ export function WriterRequestsPage() {
           <button
             key={f}
             type="button"
-            onClick={() => setFilter(f)}
+            onClick={() => handleFilterChange(f)}
             className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${
               filter === f
                 ? "bg-dracula-pink/20 text-dracula-pink border-dracula-pink/50"
@@ -116,7 +134,7 @@ export function WriterRequestsPage() {
         </div>
       )}
 
-      {error && <ErrorMessage message={error} onRetry={loadRequests} />}
+      {error && <ErrorMessage message={error} onRetry={handleRetry} />}
 
       {!isLoading && !error && requests.length === 0 && (
         <div className="text-center py-12 text-dracula-comment">
