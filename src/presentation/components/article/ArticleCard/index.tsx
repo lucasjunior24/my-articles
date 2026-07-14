@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import type { Article } from "../../../../core/entities/Article";
 import { formatDate } from "../../../../shared/utils/dateFormat";
@@ -13,8 +13,11 @@ interface ArticleCardProps {
  *
  * Exibe imagem de capa, tags, título, excerpt, autor e data.
  * O card inteiro é um link para a página do artigo.
+ *
+ * Envolvido com React.memo para evitar re-renders desnecessários
+ * quando o array de artigos muda mas o artigo específico não.
  */
-export const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
+const ArticleCardComponent: React.FC<ArticleCardProps> = ({ article }) => {
   return (
     <Link
       to={`/artigo/${article.slug}`}
@@ -26,8 +29,11 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
           <img
             src={article.coverImage}
             alt={article.title}
+            width={640}
+            height={360}
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
+            decoding="async"
           />
         </div>
       ) : (
@@ -86,3 +92,5 @@ export const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
     </Link>
   );
 };
+
+export const ArticleCard = memo(ArticleCardComponent);

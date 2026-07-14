@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import { memo } from "react";
 import type { Article } from "../../../../core/entities/Article";
 import { formatDate } from "../../../../shared/utils/dateFormat";
 import { MarkdownRenderer } from "../MarkdownRenderer";
@@ -13,12 +13,17 @@ interface ArticleContentProps {
  * Exibe título, autor, data de publicação, tags, imagem de capa
  * e o conteúdo renderizado em Markdown.
  *
+ * Envolvido com React.memo para evitar re-renders desnecessários
+ * quando o artigo não mudou.
+ *
  * @example
  * ```tsx
  * <ArticleContent article={article} />
  * ```
  */
-export const ArticleContent: FC<ArticleContentProps> = ({ article }) => {
+const ArticleContentComponent: React.FC<ArticleContentProps> = ({
+  article,
+}) => {
   return (
     <article className="max-w-3xl mx-auto">
       {/* Header */}
@@ -76,7 +81,12 @@ export const ArticleContent: FC<ArticleContentProps> = ({ article }) => {
           <img
             src={article.coverImage}
             alt={article.title}
+            width={1200}
+            height={630}
             className="w-full h-auto object-cover"
+            loading="lazy"
+            decoding="async"
+            fetchPriority="high"
           />
         </div>
       )}
@@ -103,3 +113,5 @@ export const ArticleContent: FC<ArticleContentProps> = ({ article }) => {
     </article>
   );
 };
+
+export const ArticleContent = memo(ArticleContentComponent);

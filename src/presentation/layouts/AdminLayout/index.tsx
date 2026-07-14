@@ -1,4 +1,4 @@
-import type { FC, ReactNode } from "react";
+import { type FC, type ReactNode, useMemo } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { UserAvatar } from "../../components/auth/UserAvatar";
@@ -27,6 +27,14 @@ const navItems: NavItem[] = [
   },
 ];
 
+const adminOnlyItems: NavItem[] = [
+  {
+    label: "Solicitações",
+    path: "/admin/solicitacoes-writer",
+    icon: <Icon name="user" size="sm" />,
+  },
+];
+
 /**
  * AdminLayout — Layout do painel administrativo.
  *
@@ -35,23 +43,16 @@ const navItems: NavItem[] = [
  * as páginas filhas.
  *
  * Itens exclusivos para admin (ex: Solicitações) são adicionados
- * dinamicamente ao nav via `visibleNavItems`.
+ * dinamicamente ao nav via `visibleNavItems` (memoizado com useMemo).
  */
 export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
   const { user, logout, isAdmin } = useAuth();
   const location = useLocation();
 
-  const adminOnlyItems: NavItem[] = [
-    {
-      label: "Solicitações",
-      path: "/admin/solicitacoes-writer",
-      icon: <Icon name="user" size="sm" />,
-    },
-  ];
-
-  const visibleNavItems: NavItem[] = isAdmin
-    ? [...navItems, ...adminOnlyItems]
-    : navItems;
+  const visibleNavItems = useMemo<NavItem[]>(
+    () => (isAdmin ? [...navItems, ...adminOnlyItems] : navItems),
+    [isAdmin],
+  );
 
   return (
     <div className="min-h-screen flex bg-dracula-bg">

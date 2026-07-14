@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import { memo } from "react";
 import type { Article } from "../../../../core/entities/Article";
 import { ArticleCard } from "../ArticleCard";
 import { ErrorMessage } from "../../ui/ErrorMessage";
@@ -13,8 +13,11 @@ interface ArticleListProps {
 
 /**
  * ArticleList — Grid de ArticleCards com estados de loading, empty e error.
+ *
+ * Envolvido com React.memo para evitar re-renders quando os artigos
+ * ou estados (loading/error) não mudaram.
  */
-export const ArticleList: FC<ArticleListProps> = ({
+const ArticleListComponent: React.FC<ArticleListProps> = ({
   articles,
   isLoading,
   error,
@@ -84,3 +87,5 @@ export const ArticleList: FC<ArticleListProps> = ({
     </div>
   );
 };
+
+export const ArticleList = memo(ArticleListComponent);
