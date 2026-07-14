@@ -1,4 +1,4 @@
-# 📐 Documentação do Layout e Navegação — Blog Lucas
+# 📐 Documentação do Layout e Navegação — My Articles
 
 ## 📋 Índice
 
@@ -24,7 +24,7 @@
 
 ## 🎯 Visão Geral
 
-O **Blog Lucas** é uma aplicação React + TypeScript com Firebase, utilizando **Tailwind CSS v4** com tema **Dracula Dark**. A aplicação possui duas áreas principais:
+O **My Articles** é uma aplicação React + TypeScript com Firebase, utilizando **Tailwind CSS v4** com tema **Dracula Dark**. A aplicação possui duas áreas principais:
 
 - **Área Pública** — Qualquer visitante pode acessar
 - **Área Administrativa** — Restrita a usuários com role `admin`
@@ -89,7 +89,7 @@ Layout principal do blog, usado por todas as páginas públicas.
 ┌──────────────────────────────────────────────────────┐
 │  HEADER (sticky, backdrop-blur-lg, shadow-sm)         │
 │  ┌────────────────────────────────────────────────┐   │
-│  │ [📖 Blog Lucas]  🏠 Home  🛡️ Admin?  [🔐 Auth]│   │
+│  │ [📖 My Articles]  🏠 Home  🛡️ Admin?  [🔐 Auth]│   │
 │  │                  (com ícones SVG)               │   │
 │  └────────────────────────────────────────────────┘   │
 ├──────────────────────────────────────────────────────┤
@@ -105,7 +105,7 @@ Layout principal do blog, usado por todas as páginas públicas.
 ├──────────────────────────────────────────────────────┤
 │  FOOTER                                                │
 │  ┌────────────────────────────────────────────────┐   │
-│  │ 📖 Blog Lucas © 2026    ● React + TypeScript   │   │
+│  │ 📖 My Articles © 2026    ● React + TypeScript   │   │
 │  │                          ● Tema Dracula Dark    │   │
 │  └────────────────────────────────────────────────┘   │
 └──────────────────────────────────────────────────────┘
@@ -113,7 +113,7 @@ Layout principal do blog, usado por todas as páginas públicas.
 
 **Características:**
 - **Header sticky** com backdrop blur, sombra suave e borda sutil
-- **Logo** "Blog Lucas" com ícone de livro em container arredondado, link para `/`
+- **Logo** "My Articles" com ícone de livro em container arredondado, link para `/`
 - **Nav** com links "Home" (`/`) e "Painel Admin" (`/admin` — visível apenas para admins), ambos com **ícones SVG** e destaque visual no link ativo (bg rosa)
 - **AuthButton** — botão de login com Google (rosa, arredondado, com sombra) ou avatar + nome + "Sair" (vermelho)
 - **Footer** com copyright e informações da stack com indicadores coloridos
@@ -131,7 +131,7 @@ Layout do painel administrativo, protegido por `ProtectedRoute`.
 ┌──────────────────────────────────────────────────────┐
 │  SIDEBAR (w-64, hidden em mobile)                    │
 │  ┌──────────────┐  ┌──────────────────────────────┐  │
-│  │ Blog Lucas   │  │ HEADER (sticky)               │  │
+│  │ My Articles   │  │ HEADER (sticky)               │  │
 │  │ Painel Admin │  │ ┌────────────────────────┐    │  │
 │  │              │  │ │ [Admin] [Novo]  👤 Sair│    │  │
 │  │ 📊 Dashboard │  │ └────────────────────────┘    │  │

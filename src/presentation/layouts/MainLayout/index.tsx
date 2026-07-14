@@ -42,7 +42,7 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
               <div className="w-8 h-8 rounded-lg bg-dracula-pink/12 flex items-center justify-center group-hover:bg-dracula-pink/20 transition-colors">
                 <Icon name="book" size="sm" />
               </div>
-              <span className="hidden sm:inline">Blog Lucas</span>
+              <span className="hidden sm:inline">My Articles</span>
             </Link>
 
             {/* Navigation */}
@@ -80,7 +80,7 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
               <div className="w-6 h-6 rounded-md bg-dracula-pink/10 flex items-center justify-center">
                 <Icon name="book" size="xs" className="text-dracula-pink" />
               </div>
-              <span>Blog Lucas &copy; {new Date().getFullYear()}</span>
+              <span>My Articles &copy; {new Date().getFullYear()}</span>
             </div>
             <div className="flex items-center gap-3 text-xs text-dracula-comment/70">
               <span className="flex items-center gap-1">

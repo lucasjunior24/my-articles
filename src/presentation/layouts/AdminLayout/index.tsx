@@ -64,7 +64,7 @@ export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
             className="flex items-center gap-2 text-base font-bold text-dracula-pink hover:text-dracula-pink/80 transition-colors"
           >
             <Icon name="book" size="sm" />
-            <span>Blog Lucas</span>
+            <span>My Articles</span>
           </Link>
           <span className="block mt-0.5 text-[10px] font-semibold text-dracula-comment uppercase tracking-widest">
             Painel
@@ -125,7 +125,7 @@ export const AdminLayout: FC<AdminLayoutProps> = ({ children }) => {
                 to="/"
                 className="text-sm font-bold text-dracula-pink hover:text-dracula-pink/80 transition-colors"
               >
-                Blog Lucas
+                My Articles
               </Link>
               <span className="text-[10px] font-semibold text-dracula-comment uppercase tracking-wider bg-dracula-current/30 px-1.5 py-0.5 rounded">
                 Painel

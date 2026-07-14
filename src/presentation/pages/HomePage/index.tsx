@@ -30,9 +30,9 @@ export const HomePage: FC = () => {
           </div>
 
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-dracula-fg mb-3 leading-tight">
-            Blog do{" "}
+            My{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-dracula-pink to-dracula-purple">
-              Lucas
+              Articles
             </span>
           </h1>
 

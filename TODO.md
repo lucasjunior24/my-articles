@@ -1,4 +1,4 @@
-# 📋 Blog Lucas — TODO List por Sprints (v2)
+# 📋 My Articles — TODO List por Sprints (v2)
 
 > **Baseado na arquitetura:** `.rulescline/ARCHITECTURE2.md`  
 > **Stack:** React 19+ · TypeScript 5+ · Vite 8+ · Firebase 12+ · Tailwind CSS 4+ · React Router 7+  
