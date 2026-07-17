@@ -21,8 +21,8 @@
 | **Sprint 7** | Sistema de Like/Dislike | ✅ Concluído |
 | **Sprint 8** | Admin — CRUD de Artigos | ✅ Concluído |
 | **Sprint 9** | Sistema de Writer Requests (v2) | ✅ Concluído |
-| **Sprint 10** | Cache por IP & Performance | 🟡 Parcial |
-| **Sprint 11** | Testes | ⬜ Pendente |
+| **Sprint 10** | Cache por IP & Performance | ✅ Concluído |
+| **Sprint 11** | Testes | ✅ Concluído |
 | **Sprint 12** | Polimento & Deploy | ⬜ Pendente |
 
 ---
@@ -339,12 +339,12 @@
 
 ### 10.2 Performance
 
-- [ ] **10.2.1** Lazy loading de páginas com `React.lazy()` + `Suspense`
-- [ ] **10.2.2** Code splitting por rota (Admin vs Público)
-- [ ] **10.2.3** Otimizar imagens (lazy loading, width/height, WebP)
-- [ ] **10.2.4** Adicionar `React.memo()` em componentes pesados (ArticleCard, ArticleList, MarkdownRenderer)
-- [ ] **10.2.5** Configurar Vite para produção (minificação, tree shaking, chunk splitting)
-- [ ] **10.2.6** Adicionar `useMemo`/`useCallback` onde necessário
+- [x] **10.2.1** Lazy loading de páginas com `React.lazy()` + `Suspense`
+- [x] **10.2.2** Code splitting por rota (Admin vs Público)
+- [x] **10.2.3** Otimizar imagens (lazy loading, width/height, WebP)
+- [x] **10.2.4** Adicionar `React.memo()` em componentes pesados (ArticleCard, ArticleList, MarkdownRenderer)
+- [x] **10.2.5** Configurar Vite para produção (minificação, tree shaking, chunk splitting)
+- [x] **10.2.6** Adicionar `useMemo`/`useCallback` onde necessário
 
 ---
 
@@ -354,42 +354,42 @@
 
 ### 11.1 Configuração
 
-- [ ] **11.1.1** Configurar Vitest no `vite.config.ts`
-- [ ] **11.1.2** Configurar Testing Library
-- [ ] **11.1.3** Configurar Playwright para E2E
+- [x] **11.1.1** Configurar Vitest no `vite.config.ts`
+- [x] **11.1.2** Configurar Testing Library
+- [x] **11.1.3** Configurar Playwright para E2E
 
 ### 11.2 Testes Unitários — Core
 
-- [ ] **11.2.1** Testar `CreateArticleUseCase` — admin/writer pode criar, reader não, validação de campos
-- [ ] **11.2.2** Testar `GetArticlesUseCase` — cache hit/miss
-- [ ] **11.2.3** Testar `ToggleLikeUseCase` — logado/não logado, toggle funciona
-- [ ] **11.2.4** Testar `RequestWriterUseCase` — reader solicita, admin/writer não, duplicata pendente
-- [ ] **11.2.5** Testar `ApproveWriterUseCase` — admin aprova/rejeita, não-admin não
-- [ ] **11.2.6** Testar entidades — `isCacheValid()` com TTL válido/expirado
-- [ ] **11.2.7** Testar utilitários — `slugify()`, `dateFormat()`, `validators`
+- [x] **11.2.1** Testar `CreateArticleUseCase` — admin/writer pode criar, reader não, validação de campos
+- [x] **11.2.2** Testar `GetArticlesUseCase` — cache hit/miss
+- [x] **11.2.3** Testar `ToggleLikeUseCase` — logado/não logado, toggle funciona
+- [x] **11.2.4** Testar `RequestWriterUseCase` — reader solicita, admin/writer não, duplicata pendente
+- [x] **11.2.5** Testar `ApproveWriterUseCase` — admin aprova/rejeita, não-admin não
+- [x] **11.2.6** Testar entidades — `isCacheValid()` com TTL válido/expirado
+- [x] **11.2.7** Testar utilitários — `slugify()`, `dateFormat()`, `validators`
 
 ### 11.3 Testes de Componentes
 
-- [ ] **11.3.1** Testar `Button` — Renderização, clique, loading, disabled
-- [ ] **11.3.2** Testar `ArticleCard` — Renderização com dados mockados
-- [ ] **11.3.3** Testar `AuthButton` — Estado logado, não logado, loading
-- [ ] **11.3.4** Testar `LikeButton` — Voto, toggle, desabilitado sem login
-- [ ] **11.3.5** Testar `RequestWriterButton` — Reader vê botão, writer/admin não, pendente mostra badge
-- [ ] **11.3.6** Testar `ProtectedRoute` — Redireciona não-auth, bloqueia não-admin, bloqueia não-writer
+- [x] **11.3.1** Testar `Button` — Renderização, clique, loading, disabled
+- [x] **11.3.2** Testar `ArticleCard` — Renderização com dados mockados
+- [x] **11.3.3** Testar `AuthButton` — Estado logado, não logado, loading
+- [x] **11.3.4** Testar `LikeButton` — Voto, toggle, desabilitado sem login
+- [x] **11.3.5** Testar `RequestWriterButton` — Reader vê botão, writer/admin não, pendente mostra badge
+- [x] **11.3.6** Testar `ProtectedRoute` — Redireciona não-auth, bloqueia não-admin, bloqueia não-writer
 
 ### 11.4 Testes de Integração
 
-- [ ] **11.4.1** Testar `AuthContext` + `useAuth` — Login, logout, `isAdmin`, `isWriter`
-- [ ] **11.4.2** Testar `useLike` — Fluxo de like/dislike com adapter mockado
-- [ ] **11.4.3** Testar `useWriterRequest` — Solicitar, estado pendente, refresh
+- [x] **11.4.1** Testar `AuthContext` + `useAuth` — Login, logout, `isAdmin`, `isWriter`
+- [x] **11.4.2** Testar `useLike` — Fluxo de like/dislike com adapter mockado
+- [x] **11.4.3** Testar `useWriterRequest` — Solicitar, estado pendente, refresh
 
 ### 11.5 Testes E2E (Playwright)
 
-- [ ] **11.5.1** Testar fluxo de leitura — Home → clicar artigo → ver conteúdo → voltar
-- [ ] **11.5.2** Testar fluxo de login — Clicar "Entrar com Google"
-- [ ] **11.5.3** Testar fluxo admin — Login → criar artigo → publicar → ver na home
-- [ ] **11.5.4** Testar fluxo writer request — Reader solicita → admin aprova → writer acessa painel
-- [ ] **11.5.5** Testar fluxo de like — Login → like → dislike → remover
+- [x] **11.5.1** Testar fluxo de leitura — Home → clicar artigo → ver conteúdo → voltar
+- [x] **11.5.2** Testar fluxo de login — Clicar "Entrar com Google"
+- [x] **11.5.3** Testar fluxo admin — Login → criar artigo → publicar → ver na home
+- [x] **11.5.4** Testar fluxo writer request — Reader solicita → admin aprova → writer acessa painel
+- [x] **11.5.5** Testar fluxo de like — Login → like → dislike → remover
 
 ---
 
@@ -450,8 +450,8 @@ Sprint 6  [##########] Autenticação & Autorização (3 roles)  ✅
 Sprint 7  [##########] Sistema de Like/Dislike (API v2)      ✅
 Sprint 8  [##########] Admin — CRUD de Artigos               ✅
 Sprint 9  [##########] Sistema de Writer Requests (v2)       ✅
-Sprint 10 [#####-----] Cache por IP & Performance            🟡
-Sprint 11 [----------] Testes                                ⬜
+Sprint 10 [##########] Cache por IP & Performance            ✅
+Sprint 11 [##########] Testes                                ✅
 Sprint 12 [----------] Polimento & Deploy                    ⬜
 ```
 
@@ -474,8 +474,8 @@ Sprint 12 [----------] Polimento & Deploy                    ⬜
 
 ### ⭐ Nice to Have
 
-- [ ] Performance — Lazy loading, code splitting (Sprint 10)
-- [ ] Testes — Unitários, integração, E2E (Sprint 11)
+- [x] Performance — Lazy loading, code splitting (Sprint 10)
+- [x] Testes — Unitários, integração, E2E (Sprint 11)
 - [ ] Animações e transições (Sprint 12)
 - [ ] SEO e meta tags (Sprint 12)
 - [ ] Página de perfil do usuário (Sprint 12)
@@ -483,5 +483,5 @@ Sprint 12 [----------] Polimento & Deploy                    ⬜
 ---
 
 > **Gerado a partir de:** `.rulescline/ARCHITECTURE2.md`  
-> **Última atualização:** 12/07/2026  
+> **Última atualização:** 17/07/2026  
 > **Versão do TODO:** 2.0 (alinhado com ARCHITECTURE2.md)

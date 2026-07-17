@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
@@ -11,6 +12,24 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+
+  // -------------------------------------------------------------------
+  // Testes — Vitest (11.1.1)
+  // -------------------------------------------------------------------
+  test: {
+    // Ativa APIs globais (describe, it, expect) sem necessidade de import
+    globals: true,
+    // Ambiente jsdom para simular o browser nos testes de componente
+    environment: "jsdom",
+    // Arquivo de setup do Testing Library
+    setupFiles: ["./src/setupTests.ts"],
+    // Habilita processamento de CSS nos testes
+    css: true,
+    // Inclui diretório de testes
+    include: ["src/**/*.test.{ts,tsx}"],
+    // Exclui node_modules e dist
+    exclude: ["node_modules", "dist"],
   },
 
   // -------------------------------------------------------------------
