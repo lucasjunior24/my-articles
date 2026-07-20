@@ -399,14 +399,14 @@
 
 ### 12.1 Polimento
 
-- [ ] **12.1.1** Revisar responsividade mobile (320px, 768px, 1024px, 1440px)
-- [ ] **12.1.2** Adicionar animações e transições (fade in artigos, transição like, loading skeleton)
-- [ ] **12.1.3** Adicionar meta tags SEO (título, descrição, Open Graph, Twitter Card)
-- [ ] **12.1.4** Adicionar/manter favicon (`public/favicon.svg`)
-- [ ] **12.1.5** Tratar erros de rede (toast notifications via `ErrorBoundary`)
-- [ ] **12.1.6** Revisar loading states em todas as páginas e botões
-- [ ] **12.1.7** Adicionar página de perfil para o usuário (mostrar role, opção de solicitar writer)
-- [ ] **12.1.8** Writer ver apenas seus próprios artigos no Dashboard (filtrar por `authorId`)
+- [x] **12.1.1** Revisar responsividade mobile (320px, 768px, 1024px, 1440px)
+- [x] **12.1.2** Adicionar animações e transições (fade in artigos, transição like, loading skeleton)
+- [x] **12.1.3** Adicionar meta tags SEO (título, descrição, Open Graph, Twitter Card)
+- [x] **12.1.4** Adicionar/manter favicon (`public/favicon.svg`)
+- [x] **12.1.5** Tratar erros de rede (toast notifications via `ErrorBoundary`)
+- [x] **12.1.6** Revisar loading states em todas as páginas e botões
+- [x] **12.1.7** Adicionar página de perfil para o usuário (mostrar role, opção de solicitar writer)
+- [x] **12.1.8** Writer ver apenas seus próprios artigos no Dashboard (filtrar por `authorId`)
 
 ### 12.2 Firebase
 
@@ -476,9 +476,9 @@ Sprint 12 [----------] Polimento & Deploy                    ⬜
 
 - [x] Performance — Lazy loading, code splitting (Sprint 10)
 - [x] Testes — Unitários, integração, E2E (Sprint 11)
-- [ ] Animações e transições (Sprint 12)
-- [ ] SEO e meta tags (Sprint 12)
-- [ ] Página de perfil do usuário (Sprint 12)
+- [x] Animações e transições (Sprint 12)
+- [x] SEO e meta tags (Sprint 12)
+- [x] Página de perfil do usuário (Sprint 12)
 
 ---
 

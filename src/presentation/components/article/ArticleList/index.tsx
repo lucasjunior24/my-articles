@@ -78,11 +78,13 @@ const ArticleListComponent: React.FC<ArticleListProps> = ({
     );
   }
 
-  // Articles grid
+  // Articles grid — com animação staggered (Sprint 12.1.2)
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-stagger">
       {articles.map((article) => (
-        <ArticleCard key={article.id} article={article} />
+        <div key={article.id} className="animate-fade-in-up">
+          <ArticleCard article={article} />
+        </div>
       ))}
     </div>
   );

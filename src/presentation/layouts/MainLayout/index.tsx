@@ -59,6 +59,14 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
               )}
             </nav>
 
+            {/* Perfil link (desktop) */}
+            <nav className="hidden md:flex items-center gap-1">
+              <Link to="/perfil" className={navLinkClass("/perfil")}>
+                <Icon name="user" size="sm" />
+                <span>Perfil</span>
+              </Link>
+            </nav>
+
             {/* Auth Button */}
             <AuthButton />
           </div>

@@ -19,7 +19,7 @@ import { Icon } from "../../../components/ui/Icon";
 export const DashboardPage: FC = () => {
   const { articleAdapter, deleteArticleUseCase, updateArticleUseCase } =
     useInjection();
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
 
   const [articles, setArticles] = useState<Article[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -33,7 +33,14 @@ export const DashboardPage: FC = () => {
     setError(null);
     try {
       const allArticles = await articleAdapter.getAll();
-      setArticles(allArticles);
+
+      // Writer (não admin) vê apenas seus próprios artigos — Sprint 12.1.8
+      const filteredArticles =
+        !isAdmin && user
+          ? allArticles.filter((a) => a.authorId === user.id)
+          : allArticles;
+
+      setArticles(filteredArticles);
     } catch (err) {
       const message =
         err instanceof Error ? err.message : "Erro ao carregar artigos";
@@ -41,7 +48,7 @@ export const DashboardPage: FC = () => {
     } finally {
       setIsLoading(false);
     }
-  }, [articleAdapter]);
+  }, [articleAdapter, isAdmin, user]);
 
   useEffect(() => {
     fetchArticles();

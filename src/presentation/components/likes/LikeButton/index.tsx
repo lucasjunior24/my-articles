@@ -1,4 +1,4 @@
-import { type FC, type MouseEvent } from "react";
+import { useState, type FC, type MouseEvent } from "react";
 import type { LikeType } from "../../../../core/entities/LikeDislike";
 
 interface LikeButtonProps {
@@ -27,6 +27,8 @@ interface LikeButtonProps {
  * com cores do tema Dracula, contadores de votos e desabilita se o
  * usuário não estiver logado.
  *
+ * Inclui animação "like-pop" ao clicar (Sprint 12.1.2).
+ *
  * @example
  * ```tsx
  * <LikeButton
@@ -49,18 +51,29 @@ export const LikeButton: FC<LikeButtonProps> = ({
   onDislike,
   className = "",
 }) => {
+  const [likePop, setLikePop] = useState(false);
+  const [dislikePop, setDislikePop] = useState(false);
+
   const isDisabled = isLoading || !isLoggedIn;
 
   const handleLikeClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    if (!isDisabled) onLike();
+    if (!isDisabled) {
+      onLike();
+      setLikePop(true);
+      setTimeout(() => setLikePop(false), 300);
+    }
   };
 
   const handleDislikeClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    if (!isDisabled) onDislike();
+    if (!isDisabled) {
+      onDislike();
+      setDislikePop(true);
+      setTimeout(() => setDislikePop(false), 300);
+    }
   };
 
   return (
@@ -91,7 +104,7 @@ export const LikeButton: FC<LikeButtonProps> = ({
       >
         {/* Thumbs Up SVG */}
         <svg
-          className="w-5 h-5 shrink-0 transition-transform duration-200 hover:scale-110"
+          className={`w-5 h-5 shrink-0 transition-transform duration-200 hover:scale-110 ${likePop ? "animate-like-pop" : ""}`}
           viewBox="0 0 24 24"
           fill={userVote === "like" ? "currentColor" : "none"}
           stroke="currentColor"
@@ -135,7 +148,7 @@ export const LikeButton: FC<LikeButtonProps> = ({
       >
         {/* Thumbs Down SVG */}
         <svg
-          className="w-5 h-5 shrink-0 transition-transform duration-200 hover:scale-110"
+          className={`w-5 h-5 shrink-0 transition-transform duration-200 hover:scale-110 ${dislikePop ? "animate-like-pop" : ""}`}
           viewBox="0 0 24 24"
           fill={userVote === "dislike" ? "currentColor" : "none"}
           stroke="currentColor"

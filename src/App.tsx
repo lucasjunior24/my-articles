@@ -25,6 +25,11 @@ const LoginPage = lazy(() =>
     default: m.LoginPage,
   })),
 );
+const ProfilePage = lazy(() =>
+  import("./presentation/pages/ProfilePage").then((m) => ({
+    default: m.ProfilePage,
+  })),
+);
 const NotFoundPage = lazy(() =>
   import("./presentation/pages/NotFoundPage").then((m) => ({
     default: m.NotFoundPage,
@@ -95,6 +100,14 @@ function App() {
             element={
               <Suspense fallback={PageLoader}>
                 <LoginPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/perfil"
+            element={
+              <Suspense fallback={PageLoader}>
+                <ProfilePage />
               </Suspense>
             }
           />
